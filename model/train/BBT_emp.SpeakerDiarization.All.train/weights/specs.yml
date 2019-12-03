@@ -1,0 +1,10 @@
+X:
+  dimension: 1
+task: multi_label_classification
+y:
+  classes:
+  - KCHI
+  - CHI
+  - MAL
+  - FEM
+  - SPEECH

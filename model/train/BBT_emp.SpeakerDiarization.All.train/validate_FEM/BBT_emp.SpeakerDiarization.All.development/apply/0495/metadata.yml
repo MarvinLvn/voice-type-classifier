@@ -1,0 +1,10 @@
+dimension: 5
+duration: 0.0203125
+labels:
+- KCHI
+- CHI
+- MAL
+- FEM
+- SPEECH
+start: 0.0
+step: 0.0016875
