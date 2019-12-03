@@ -10,6 +10,7 @@ $ git clone https://github.com/MarvinLvn/voice_type_classifier.git
 $ cd voice_type_classifier
 
 # Step 2: This creates a conda environment with python 3.6
+# Add jsalt-coml/pyannote-audio.git as a git submodule
 $ mkdir pyannote
 $ cd pyannote
 $ git clone https://github.com/jsalt-coml/pyannote-audio.git
