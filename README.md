@@ -1,4 +1,4 @@
-# Voice Type Classifier
+# SincNet and LSTM based Voice Type Classifier
 
 ### /!\ DISCLAIMER /!\
 
