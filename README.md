@@ -10,6 +10,7 @@ In this repository, you'll find all the necessary code for applying a pre-traine
 - SPEECH stands for speech :)
 
 Our model has been developped in JSALT [1] and its architecture is based on SincNet [2].
+The code mainly relies on pyannote-audio [3], an awesome python toolkit for building neural building blocks that can be combined to solve the speaker diarization task.
 
 ### How to use ?
 
@@ -24,4 +25,5 @@ Our model has been developped in JSALT [1] and its architecture is based on Sinc
 
 [2] Mirco Ravanelli, Yoshua Bengio, “Speaker Recognition from raw waveform with SincNet” [arXiV](https://arxiv.org/abs/1808.00158)
 
+[3] Hervé Bredin et al, "pyannote.audio: neural building blocks for speaker diarization" [arXiV](https://arxiv.org/abs/1911.01255)
 
