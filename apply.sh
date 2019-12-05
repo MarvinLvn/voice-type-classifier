@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-conda activate pyannote
-
 declare -a classes=(KCHI CHI MAL FEM SPEECH)
 
 if [ $# -ge 2 ]; then

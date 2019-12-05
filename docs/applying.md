@@ -1,5 +1,11 @@
 # Applying
 
+First, let's activate the conda environment 
+
+```bash
+conda activate pyannote
+```
+
 The code consists mainly of a wrapper of pyannote-audio's code responsible for applying a model.
 If you want to go further by retraining the model, you should go around [here](https://github.com/pyannote/pyannote-audio) and [there](https://github.com/jsalt-coml/pyannote-audio/tree/bredin-pr).
 
