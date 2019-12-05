@@ -25,5 +25,5 @@ The code mainly relies on pyannote-audio [3], an awesome python toolkit for buil
 
 [2] Mirco Ravanelli, Yoshua Bengio, “Speaker Recognition from raw waveform with SincNet” [arXiV](https://arxiv.org/abs/1808.00158)
 
-[3] Hervé Bredin et al, "pyannote.audio: neural building blocks for speaker diarization" [arXiV](https://arxiv.org/abs/1911.01255)
+[3] Hervé Bredin et al., "pyannote.audio: neural building blocks for speaker diarization" [arXiV](https://arxiv.org/abs/1911.01255)
 

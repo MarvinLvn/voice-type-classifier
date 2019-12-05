@@ -10,8 +10,8 @@ $ git clone --recurse-submodules https://github.com/MarvinLvn/voice_type_classif
 $ cd voice_type_classifier
 
 # Step 2: This creates a conda environment with python 3.6
-$ conda env create -f environment.yml
-$ conda activate pyannote
+$ conda env create -f pyannote/pyannote-audio/environment.yml
+$ conda activate pyannote # or source activate pyannote, depending on your config
 $ pip install pyannote/pyannote-audio
 ```
 
