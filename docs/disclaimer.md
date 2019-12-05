@@ -21,3 +21,5 @@ Moreover, no particular strategy has been applied for improving its robustness. 
 That being said, we plan for the future to retrain the model with a domain-adversarial branch, thus hoping to improve its performances on unseen domains (directly inspired from [this paper](https://arxiv.org/abs/1910.10655)).
 
 Last but not least, our model did not exhibit good performances on the **MAL** (male speech) and the **CHI** (other child speech) classes. This probably comes from the fact that the BabyTrain corpora does not contain a lot of examples for these classes. One might expect to get better performances on the **MAL** class by retraining the model on BabyTrain augmented with male speech extracted from another dataset (such as VoxCeleb for instance).
+
+You should just have a look at the [Evaluation](./evaluations.md) part before applying the model !

@@ -15,4 +15,4 @@ $ conda activate pyannote
 $ pip install pyannote/pyannote-audio
 ```
 
-Once everything has been installed, you can apply the model by following [these instructions](../docs/installation.md).
+Once everything has been installed, you can apply the model by following [these instructions](../docs/applying.md).
