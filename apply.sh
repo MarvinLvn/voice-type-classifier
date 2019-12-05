@@ -52,8 +52,7 @@ Protocols:
         echo "Extracting $class"
         awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' ${folders[$class]}/MySet.SpeakerDiarization.All.test.rttm \
             > $OUTPUT/$class.rttm
-        #echo ${folders[$class]}
-        #pyannote-multilabel apply --subset=test --gpu model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
+        pyannote-multilabel apply --subset=test --gpu model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
     done;
     cat $OUTPUT/{KCHI,CHI,MAL,FEM,SPEECH}.rttm > $OUTPUT/all.rttm
 
