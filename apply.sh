@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+THISDIR="$( cd "$( dirname "$0" )" && pwd )"
 
 declare -a classes=(KCHI CHI MAL FEM SPEECH)
 
@@ -18,23 +19,23 @@ if [ "$(ls -A $1/*.wav)" ]; then
 
     # Create database.yml
     echo "Databases:
-    MySet: /home/engaclew/Documents/test_voice_type/{uri}.wav
+    MySet: $1/{uri}.wav
 
 Protocols:
   MySet:
     SpeakerDiarization:
       All:
         test:
-          annotated: /home/engaclew/voice_type_classifier/pyannote_tmp_config/my_set.uem" >> pyannote_tmp_config/database.yml
+          annotated: $THISDIR/pyannote_tmp_config/my_set.uem" >> $THISDIR/pyannote_tmp_config/database.yml
 
     # Create .uem file
     for audio in $1/*.wav; do
         duration=$(soxi -D $audio)
         echo "$(basename ${audio/.wav/}) 1 0.0 $duration"
-    done >> pyannote_tmp_config/my_set.uem
+    done >> $THISDIR/pyannote_tmp_config/my_set.uem
     echo "Done creating config for pyannote."
 
-    PYANNOTE_DATABASE_CONFIG=pyannote_tmp_config/database.yml
+    export PYANNOTE_DATABASE_CONFIG=pyannote_tmp_config/database.yml
     pyannote-multilabel apply --subset=test --gpu model/train/BBT_emp.SpeakerDiarization.All.train/validate_FEM/BBT_emp.SpeakerDiarization.All.development MySet.SpeakerDiarization.All
 else
     echo "The folder you provided doesn't contain any wav files."
