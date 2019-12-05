@@ -15,7 +15,7 @@ That being said, you can apply our pre-trained model by typing :
 ./apply.sh /absolute/path/to/my_recordings/
 ```
 
-where **/absolute/path/to/my_recordings/** is a folder containing audio recordings in the .wav format (16kHz). 
+where **/absolute/path/to/my_recordings/** is a folder containing audio recordings in the .wav format (single-channel, 16kHz). 
 This will actually apply 5 models (each for one of the class), which can take some time.
 
 If you just need to consider one class, you can type

@@ -11,7 +11,7 @@ Note that there are no partial order relations between the different sets of cla
 - If a frame is classified as being SPEECH, this frame might not be classified as being KCHI, CHI, MAL or FEM. This case can arise when the model thinks there's speech without being able to identify the voice type.
 - If a frame is classified as being FEM, this frame might not be classified as being SPEECH (however, this case should not occur very often).
 
-The model has been trained during 500 epochs (equivalent 12 000 hours of audio) on the BabyTrain corpora.
+The model has been trained during 500 epochs (equivalent to 12 000 hours of audio) on the BabyTrain corpora.
 BabyTrain is an aggregation of multiple corpus of child-centered recordings, covering a wide range of noises and recording conditions.
 These recordings cover also multiple languages.
 

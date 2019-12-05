@@ -17,7 +17,7 @@ The code mainly relies on pyannote-audio [3], an awesome python toolkit for buil
 0) [Disclaimer /!\\](./docs/disclaimer.md)
 1) [Installation](./docs/installation.md)
 2) [Applying](./docs/applying.md)
-3) [Evaluation](./docs/evaluation.md)
+3) [Evaluation](./docs/evaluations.md)
 4) [Going further](./docs/evaluation.md)
 
 ### References
