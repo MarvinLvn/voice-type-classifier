@@ -1,0 +1,3 @@
+- If you want to build your own model, on your specific task, you should probably take a walk in the [pyannote-audio](https://github.com/pyannote/pyannote-audio) repository.
+- If you want to retrain our model, you can check out our [fork](https://github.com/jsalt-coml/pyannote-audio) of the same pyannote-audio !
+- If you want to evaluate the model, using your own evaluations metrics, you should have a look at [pyannote-metrics](https://github.com/pyannote/pyannote-metrics)
