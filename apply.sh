@@ -53,8 +53,6 @@ Protocols:
 
     for class in ${classes[*]}; do
         echo "Extracting $class"
-        echo pyannote-multilabel apply $GPU --subset=test model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
-
         pyannote-multilabel apply $GPU --subset=test model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
         awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' ${folders[$class]}/$bn.SpeakerDiarization.All.test.rttm \
             > $OUTPUT/$class.rttm
