@@ -12,7 +12,11 @@ declare -A folders=(
 if [ $# -ge 2 ]; then
     declare -a classes=() # empty array
     list=$@
-    declare -a classes=${list[@]:1} # get the classes provided by the user
+    declare -a classes=($2) # get the classes provided by the user
+fi;
+
+if [ $# -ge 3 ]; then
+    GPU=$3;
 fi;
 
 if [ "$(ls -A $1/*.wav)" ]; then
@@ -35,7 +39,6 @@ Protocols:
         test:
           annotated: $THISDIR/pyannote_tmp_config/$bn.uem" >> $THISDIR/pyannote_tmp_config/database.yml
 
-
     # Create .uem file
     for audio in $1/*.wav; do
         duration=$(soxi -D $audio)
@@ -50,9 +53,11 @@ Protocols:
 
     for class in ${classes[*]}; do
         echo "Extracting $class"
+        echo pyannote-multilabel apply $GPU --subset=test model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
+
+        pyannote-multilabel apply $GPU --subset=test model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
         awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' ${folders[$class]}/$bn.SpeakerDiarization.All.test.rttm \
             > $OUTPUT/$class.rttm
-        pyannote-multilabel apply --subset=test --gpu model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
     done;
     cat $OUTPUT/{KCHI,CHI,MAL,FEM,SPEECH}.rttm > $OUTPUT/all.rttm
 
