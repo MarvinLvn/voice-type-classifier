@@ -46,15 +46,15 @@ Protocols:
     done >> $THISDIR/pyannote_tmp_config/$bn.uem
     echo "Done creating config for pyannote."
 
-    export PYANNOTE_DATABASE_CONFIG=pyannote_tmp_config/database.yml
+    export PYANNOTE_DATABASE_CONFIG=$THISDIR/pyannote_tmp_config/database.yml
 
     OUTPUT=output_voice_type_classifier/$bn/
     mkdir -p output_voice_type_classifier/$bn/
 
     for class in ${classes[*]}; do
         echo "Extracting $class"
-        pyannote-multilabel apply $GPU --subset=test model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
-        awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' ${folders[$class]}/$bn.SpeakerDiarization.All.test.rttm \
+        pyannote-multilabel apply $GPU --subset=test $THISDIR/model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
+        awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' $THISDIR/${folders[$class]}/$bn.SpeakerDiarization.All.test.rttm \
             > $OUTPUT/$class.rttm
     done;
     cat $OUTPUT/{KCHI,CHI,MAL,FEM,SPEECH}.rttm > $OUTPUT/all.rttm
