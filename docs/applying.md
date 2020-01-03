@@ -12,17 +12,17 @@ If you want to go further by retraining the model, you should go around [here](h
 That being said, you can apply our pre-trained model by typing :
 
 ```bash
-./apply.sh /absolute/path/to/my_recordings/ --gpu
+./apply.sh /path/to/my_recordings/ --gpu
 ```
 
-where **/absolute/path/to/my_recordings/** is a folder containing audio recordings in the .wav format (single-channel, 16kHz). 
+where **/path/to/my_recordings/** is a folder containing audio recordings in the .wav format (single-channel, 16kHz). 
 This will actually apply 5 models (each for one of the class), which can take some time.
 The flag ***--gpu*** indicates if the model should be run on gpu or not. If this flag is not provided, the model will run on CPU.
 
 If you just need to consider one class, you can type
 
 ```bash
-./apply.sh /absolute/path/to/my_recordings/ SPEECH --gpu
+./apply.sh /path/to/my_recordings/ SPEECH --gpu
 ```
 
 And this will apply the model in charge of predicting the **SPEECH** class.

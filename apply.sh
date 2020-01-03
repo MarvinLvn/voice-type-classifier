@@ -37,13 +37,13 @@ Protocols:
     SpeakerDiarization:
       All:
         test:
-          annotated: $THISDIR/pyannote_tmp_config/$bn.uem" >> $THISDIR/pyannote_tmp_config/database.yml
+          annotated: $THISDIR/pyannote_tmp_config/$bn.uem" > $THISDIR/pyannote_tmp_config/database.yml
 
     # Create .uem file
     for audio in $1/*.wav; do
         duration=$(soxi -D $audio)
         echo "$(basename ${audio/.wav/}) 1 0.0 $duration"
-    done >> $THISDIR/pyannote_tmp_config/$bn.uem
+    done > $THISDIR/pyannote_tmp_config/$bn.uem
     echo "Done creating config for pyannote."
 
     export PYANNOTE_DATABASE_CONFIG=$THISDIR/pyannote_tmp_config/database.yml
@@ -57,11 +57,13 @@ Protocols:
         awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' $THISDIR/${folders[$class]}/$bn.SpeakerDiarization.All.test.rttm \
             > $OUTPUT/$class.rttm
     done;
-    cat $OUTPUT/{KCHI,CHI,MAL,FEM,SPEECH}.rttm > $OUTPUT/all.rttm
+    cat $OUTPUT/*.rttm > $OUTPUT/all.rttm
 
     # Super powerful sorting bash command :D !
     # Sort alphabetically to the second column, and numerically to the fourth one.
-    sort -b -k2,2 -k4,4n $OUTPUT/all.rttm >> $OUTPUT/all.rttm
+    sort -b -k2,2 -k4,4n $OUTPUT/all.rttm > $OUTPUT/all.tmp.rttm
+    rm $OUTPUT/all.rttm
+    mv $OUTPUT/all.tmp.rttm $OUTPUT/all.rttm
 else
     echo "The folder you provided doesn't contain any wav files."
 fi;
