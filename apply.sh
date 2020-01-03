@@ -2,12 +2,14 @@
 THISDIR="$( cd "$( dirname "$0" )" && pwd )"
 
 declare -a classes=(KCHI CHI MAL FEM SPEECH)
-declare -A folders=(
-["KCHI"]="model/train/BBT_emp.SpeakerDiarization.All.train/validate_KCHI/BBT_emp.SpeakerDiarization.All.development/apply/0455"
-["CHI"]="model/train/BBT_emp.SpeakerDiarization.All.train/validate_CHI/BBT_emp.SpeakerDiarization.All.development/apply/0265"
-["MAL"]="model/train/BBT_emp.SpeakerDiarization.All.train/validate_MAL/BBT_emp.SpeakerDiarization.All.development/apply/0330"
-["FEM"]="model/train/BBT_emp.SpeakerDiarization.All.train/validate_FEM/BBT_emp.SpeakerDiarization.All.development/apply/0495"
-["SPEECH"]="model/train/BBT_emp.SpeakerDiarization.All.train/validate_SPEECH/BBT_emp.SpeakerDiarization.All.development/apply/0495")
+
+declare -a folders=(
+"KCHI:model/train/BBT_emp.SpeakerDiarization.All.train/validate_KCHI/BBT_emp.SpeakerDiarization.All.development/apply/0455"
+"CHI:model/train/BBT_emp.SpeakerDiarization.All.train/validate_CHI/BBT_emp.SpeakerDiarization.All.development/apply/0265"
+"MAL:model/train/BBT_emp.SpeakerDiarization.All.train/validate_MAL/BBT_emp.SpeakerDiarization.All.development/apply/0330"
+"FEM:model/train/BBT_emp.SpeakerDiarization.All.train/validate_FEM/BBT_emp.SpeakerDiarization.All.development/apply/0495"
+"SPEECH:model/train/BBT_emp.SpeakerDiarization.All.train/validate_SPEECH/BBT_emp.SpeakerDiarization.All.development/apply/0495")
+
 
 if [ $# -ge 2 ]; then
     declare -a classes=() # empty array
@@ -51,10 +53,12 @@ Protocols:
     OUTPUT=output_voice_type_classifier/$bn/
     mkdir -p output_voice_type_classifier/$bn/
 
-    for class in ${classes[*]}; do
+    for couple in ${folders[*]}; do
+        class="${couple%%:*}"
+        class_model_path="${couple##*:}"
         echo "Extracting $class"
         pyannote-multilabel apply $GPU --subset=test $THISDIR/model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
-        awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' $THISDIR/${folders[$class]}/$bn.SpeakerDiarization.All.test.rttm \
+        awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' $THISDIR/${class_model_path}/$bn.SpeakerDiarization.All.test.rttm \
             > $OUTPUT/$class.rttm
     done;
     cat $OUTPUT/*.rttm > $OUTPUT/all.rttm
