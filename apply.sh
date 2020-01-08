@@ -11,13 +11,13 @@ declare -a folders=(
 "SPEECH:model/train/BBT_emp.SpeakerDiarization.All.train/validate_SPEECH/BBT_emp.SpeakerDiarization.All.development/apply/0495")
 
 
-if [ $# -ge 2 ]; then
-    declare -a classes=() # empty array
-    list=$@
+# ./apply.sh my_folder KCHI
+if [ $# -eq 2 ]; then
     declare -a classes=($2) # get the classes provided by the user
 fi;
 
-if [ $# -ge 3 ]; then
+# ./apply.sh my_folder KCHI --gpu
+if [ $# -eq 3 ]; then
     GPU=$3;
 fi;
 
@@ -56,11 +56,19 @@ Protocols:
     for couple in ${folders[*]}; do
         class="${couple%%:*}"
         class_model_path="${couple##*:}"
-        echo "Extracting $class"
-        pyannote-multilabel apply $GPU --subset=test $THISDIR/model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
-        awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' $THISDIR/${class_model_path}/$bn.SpeakerDiarization.All.test.rttm \
-            > $OUTPUT/$class.rttm
+
+        # Check current class is in classes (provided by the user or by default the KCHI CHI MAL FEM SPEECH)
+        if [[ ${classes[*]} =~ (^|[[:space:]])${class}($|[[:space:]]) ]]; then
+            echo "Extracting $class"
+            pyannote-multilabel apply $GPU --subset=test $THISDIR/model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
+            awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' $THISDIR/${class_model_path}/$bn.SpeakerDiarization.All.test.rttm \
+                > $OUTPUT/$class.rttm
+        fi;
     done;
+
+    # Clean up
+    rm -rf $THISDIR/${class_model_path}
+    rm -f $OUTPUT/all.rttm
     cat $OUTPUT/*.rttm > $OUTPUT/all.rttm
 
     # Super powerful sorting bash command :D !

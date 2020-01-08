@@ -33,11 +33,11 @@ Detection Error Rate might not be the best metric in our case, since some of the
 When the audio contains little speech, the denominator is still close to 0 and can lead to a really high detection error rate.
 Here, we propose to have a look at the confusion matrices
 
-|| | | | voice_type_classifier  | | |
+|| | | | **voice_type_classifier**  | | |
 |:---| -----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 | | | SIL  |  KCHI | CHI  |   FEM  | MAL |
 | | SIL  | 3333203 | 127031 |  43 | 119878 | 12473 |
 | | KCHI  | 171122 | 398290 | 383 |  26344 | 2123 |
-|gold| CHI  | 169287 | 73966 | 335  | 28379 |  1183 |
+| **gold** | CHI  | 169287 | 73966 | 335  | 28379 |  1183 |
 | | FEM | 447222 | 77517 | 303 | 466477 | 17534 |
 | | MAL  | 151170  | 14283   | 0 |  31444 | 56321 |
