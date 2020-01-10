@@ -27,8 +27,8 @@ if [ "$(ls -A $1/*.wav)" ]; then
     bn=$(basename $1)
     echo "Creating config for pyannote."
     # Create pyannote_tmp_config containing all the necessary files
-    rm -rf pyannote_tmp_config
-    mkdir pyannote_tmp_config
+    rm -rf $THISDIR/pyannote_tmp_config
+    mkdir $THISDIR/pyannote_tmp_config
 
     # Create database.yml
     echo "Databases:
