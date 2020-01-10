@@ -25,6 +25,11 @@ If you just need to consider one class, you can type
 ./apply.sh /path/to/my_recordings/ SPEECH --gpu
 ```
 
+or if you want to apply the model to a subset of classes : 
+```bash
+./apply.sh /path/to/my_recordings/ "KCHI FEM" --gpu
+```
+
 And this will apply the model in charge of predicting the **SPEECH** class.
 
 # Output format

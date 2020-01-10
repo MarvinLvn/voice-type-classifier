@@ -12,7 +12,7 @@ declare -a folders=(
 
 
 # ./apply.sh my_folder KCHI
-if [ $# -eq 2 ]; then
+if [ $# -ge 2 ]; then
     declare -a classes=($2) # get the classes provided by the user
 fi;
 
@@ -20,6 +20,18 @@ fi;
 if [ $# -eq 3 ]; then
     GPU=$3;
 fi;
+
+# ./apply.sh my_folder KCHI --gpu
+if [ $# -ge 4 ]; then
+    echo "Wrong call. Must provide 3 arguments at most."
+    echo "Example 1 :"
+    echo "./apply.sh /path/to/my/folder (--gpu)"
+    echo "Example 2:"
+    echo "./apply.sh /path/to/my/folder/ \"CHI MAL\" (--gpu)"
+    exit
+fi;
+
+
 
 if [ "$(ls -A $1/*.wav)" ]; then
     echo "Found wav files."
