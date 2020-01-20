@@ -18,7 +18,7 @@ The code mainly relies on pyannote-audio [3], an awesome python toolkit for buil
 1) [Installation](./docs/installation.md)
 2) [Applying](./docs/applying.md)
 3) [Evaluation](./docs/evaluations.md)
-4) [Going further](./docs/evaluation.md)
+4) [Going further](./docs/going_further.md)
 
 ### References
 [1] Paola Garcia et al., "Speaker detection in the wild: Lessons learned from JSALT 2019" [arXiV](https://arxiv.org/abs/1912.00938)
