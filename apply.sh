@@ -4,11 +4,11 @@ THISDIR="$( cd "$( dirname "$0" )" && pwd )"
 declare -a classes=(KCHI CHI MAL FEM SPEECH)
 
 declare -a folders=(
-"KCHI:model/train/BBT_emp.SpeakerDiarization.All.train/validate_KCHI/BBT_emp.SpeakerDiarization.All.development/apply/0455"
-"CHI:model/train/BBT_emp.SpeakerDiarization.All.train/validate_CHI/BBT_emp.SpeakerDiarization.All.development/apply/0265"
-"MAL:model/train/BBT_emp.SpeakerDiarization.All.train/validate_MAL/BBT_emp.SpeakerDiarization.All.development/apply/0330"
-"FEM:model/train/BBT_emp.SpeakerDiarization.All.train/validate_FEM/BBT_emp.SpeakerDiarization.All.development/apply/0495"
-"SPEECH:model/train/BBT_emp.SpeakerDiarization.All.train/validate_SPEECH/BBT_emp.SpeakerDiarization.All.development/apply/0495")
+"KCHI:model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_KCHI/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/apply/0100"
+"CHI:model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_CHI/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/apply/0100"
+"MAL:model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_MAL/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/apply/0100"
+"FEM:model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_FEM/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/apply/0100"
+"SPEECH:model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_SPEECH/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/apply/0100")
 
 
 # ./apply.sh my_folder KCHI
@@ -72,7 +72,7 @@ Protocols:
         # Check current class is in classes (provided by the user or by default the KCHI CHI MAL FEM SPEECH)
         if [[ ${classes[*]} =~ (^|[[:space:]])${class}($|[[:space:]]) ]]; then
             echo "Extracting $class"
-            pyannote-multilabel apply $GPU --subset=test $THISDIR/model/train/BBT_emp.SpeakerDiarization.All.train/validate_$class/BBT_emp.SpeakerDiarization.All.development $bn.SpeakerDiarization.All
+            pyannote-multilabel apply $GPU --subset=test $THISDIR/model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_$class/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development $bn.SpeakerDiarization.All
             awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' $THISDIR/${class_model_path}/$bn.SpeakerDiarization.All.test.rttm \
                 > $OUTPUT/$class.rttm
         fi;
