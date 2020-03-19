@@ -1,0 +1,713 @@
+Databases:
+  MUSAN: /gpfswork/rech/vyk/commun/musan/{uri}.wav
+  BabyTrain: /gpfswork/rech/vyk/commun/BabyTrain_full/{uri}.wav
+  BabyTrain_resplitted: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/{uri}.wav
+  BBT2: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/{uri}.wav
+  Databrary: /gpfswork/rech/vyk/commun/databrary_pyannote/wav/{uri}.wav
+  AMI: /gpfswork/rech/vyk/commun/AMI/{uri}.wav
+  CHIME5: /gpfswork/rech/vyk/commun/CHiME5/{uri}.wav
+Protocols:
+  BabyTrain:
+    SpeakerDiarization:
+      war2:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/train/war2.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/train/war2.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/train/war2.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/train/war2.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/war2.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/war2.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/war2.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/war2.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/test/war2.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/test/war2.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/test/war2.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/test/war2.test.txt
+      vanuatu:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/train/vanuatu.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/train/vanuatu.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/train/vanuatu.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/train/vanuatu.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/vanuatu.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/vanuatu.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/vanuatu.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/vanuatu.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/test/vanuatu.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/test/vanuatu.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/test/vanuatu.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/test/vanuatu.test.txt
+      tsimane:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsimane.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsimane.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsimane.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsimane.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsimane.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsimane.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsimane.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsimane.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsimane.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsimane.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsimane.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsimane.test.txt
+      tsay:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsay.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsay.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsay.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsay.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsay.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsay.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsay.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsay.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsay.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsay.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsay.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsay.test.txt
+      tsay_emmanuel:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsay.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsay.train.emmanuel.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsay.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/train/tsay.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsay.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsay.dev.emmanuel.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsay.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/tsay.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsay.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsay.test.emmanuel.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsay.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/test/tsay.test.txt
+      paido:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/train/paido.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/train/paido.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/train/paido.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/train/paido.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/paido.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/paido.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/paido.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/paido.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/test/paido.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/test/paido.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/test/paido.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/test/paido.test.txt
+      paido_emmanuel:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/train/paido.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/train/paido.train.emmanuel.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/train/paido.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/train/paido.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/paido.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/paido.dev.emmanuel.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/paido.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/paido.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/test/paido.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/test/paido.test.emmanuel.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/test/paido.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/test/paido.test.txt
+      namibia:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/train/namibia.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/train/namibia.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/train/namibia.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/train/namibia.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/namibia.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/namibia.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/namibia.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/namibia.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/test/namibia.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/test/namibia.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/test/namibia.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/test/namibia.test.txt
+      lena:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/train/lena.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/train/lena.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/train/lena.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/train/lena.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/lena.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/lena.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/lena.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/lena.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/test/lena.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/test/lena.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/test/lena.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/test/lena.test.txt
+      aclew:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/train/aclew.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/train/aclew.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/train/aclew.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/train/aclew.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/aclew.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/aclew.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/aclew.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/dev/aclew.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full/test/aclew.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full/test/aclew.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full/test/aclew.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full/test/aclew.test.txt
+  BabyTrain_resplitted:
+    SpeakerDiarization:
+      war2:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/war2.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/war2.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/war2.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/war2.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/war2.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/war2.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/war2.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/war2.dev.txt
+      vanuatu:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/vanuatu.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/vanuatu.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/vanuatu.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/vanuatu.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/vanuatu.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/vanuatu.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/vanuatu.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/vanuatu.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/vanuatu.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/vanuatu.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/vanuatu.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/vanuatu.test.txt
+      tsimane:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/tsimane.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/tsimane.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/tsimane.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/tsimane.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/tsimane.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/tsimane.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/tsimane.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/tsimane.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/tsimane.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/tsimane.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/tsimane.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/tsimane.test.txt
+      tsay:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/tsay.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/tsay.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/tsay.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/tsay.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/tsay.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/tsay.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/tsay.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/tsay.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/tsay.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/tsay.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/tsay.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/tsay.test.txt
+      paido:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/paido.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/paido.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/paido.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/paido.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/paido.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/paido.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/paido.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/paido.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/paido.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/paido.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/paido.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/paido.test.txt
+      namibia:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/namibia.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/namibia.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/namibia.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/namibia.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/namibia.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/namibia.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/namibia.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/namibia.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/namibia.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/namibia.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/namibia.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/namibia.test.txt
+      lena:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/lena.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/lena.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/lena.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/lena.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/lena.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/lena.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/lena.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/lena.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/lena.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/lena.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/lena.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/lena.test.txt
+      aclew:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/aclew.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/aclew.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/aclew.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/train/aclew.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/aclew.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/aclew.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/aclew.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/dev/aclew.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/aclew.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/aclew.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/aclew.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted/test/aclew.test.txt
+  BBT2:
+    SpeakerDiarization:
+      war2:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/war2.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/war2.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/war2.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/war2.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/war2.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/war2.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/war2.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/war2.dev.txt
+      vanuatu:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/vanuatu.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/vanuatu.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/vanuatu.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/vanuatu.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/vanuatu.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/vanuatu.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/vanuatu.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/vanuatu.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/vanuatu.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/vanuatu.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/vanuatu.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/vanuatu.test.txt
+      tsimane:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/tsimane.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/tsimane.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/tsimane.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/tsimane.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/tsimane.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/tsimane.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/tsimane.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/tsimane.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/tsimane.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/tsimane.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/tsimane.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/tsimane.test.txt
+      tsay:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/tsay.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/tsay.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/tsay.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/tsay.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/tsay.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/tsay.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/tsay.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/tsay.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/tsay.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/tsay.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/tsay.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/tsay.test.txt
+      paido:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/paido.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/paido.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/paido.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/paido.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/paido.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/paido.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/paido.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/paido.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/paido.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/paido.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/paido.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/paido.test.txt
+      namibia:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/namibia.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/namibia.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/namibia.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/namibia.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/namibia.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/namibia.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/namibia.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/namibia.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/namibia.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/namibia.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/namibia.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/namibia.test.txt
+      lena:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/lena.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/lena.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/lena.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/lena.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/lena.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/lena.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/lena.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/lena.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/lena.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/lena.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/lena.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/lena.test.txt
+      aclew:
+        train:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/aclew.train.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/aclew.train.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/aclew.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/train/aclew.train.txt
+        development:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/aclew.dev.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/aclew.dev.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/aclew.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/dev/aclew.dev.txt
+        test:
+          annotated: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/aclew.test.uem
+          annotation: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/aclew.test.rttm
+          domain: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/aclew.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/BabyTrain_full_resplitted2/test/aclew.test.txt
+  Databrary:
+   SpeakerDiarization:
+     All:
+       test:
+         annotation: /gpfswork/rech/vyk/commun/databrary_pyannote/all2.rttm
+         annotated: /gpfswork/rech/vyk/commun/databrary_pyannote/test.uem
+  CHiME5:
+    SpeakerDiarization:
+      U01:
+        train:
+          annotation: /gpfswork/rech/vyk/commun/CHiME5/train/allU01_train.rttm
+          annotated: /gpfswork/rech/vyk/commun/CHiME5/train/CHIME.train.uem
+          domain: /gpfswork/rech/vyk/commun/CHiME5/train/CHIME.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/CHiME5/train/CHIME.train.txt
+        development:
+          annotation: /gpfswork/rech/vyk/commun/CHiME5/dev/allU01_dev.rttm
+          annotated: /gpfswork/rech/vyk/commun/CHiME5/dev/CHIME.dev.uem
+          domain: /gpfswork/rech/vyk/commun/CHiME5/dev/CHIME.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/CHiME5/dev/CHIME.dev.txt
+        test:
+          annotation: /gpfswork/rech/vyk/commun/CHiME5/test/allU01_test.rttm
+          annotated: /gpfswork/rech/vyk/commun/CHiME5/test/CHIME.test.uem
+          domain: /gpfswork/rech/vyk/commun/CHiME5/test/CHIME.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/CHiME5/test/CHIME.test.txt
+      emmanuel:
+        train:
+          annotation: /gpfswork/rech/vyk/commun/CHiME5/train/allU01_train.emmanuel.rttm
+          annotated: /gpfswork/rech/vyk/commun/CHiME5/train/CHIME.train.uem
+          domain: /gpfswork/rech/vyk/commun/CHiME5/train/CHIME.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/CHiME5/train/CHIME.train.txt
+        development:
+          annotation: /gpfswork/rech/vyk/commun/CHiME5/dev/allU01_dev.emmanuel.rttm
+          annotated: /gpfswork/rech/vyk/commun/CHiME5/dev/CHIME.dev.uem
+          domain: /gpfswork/rech/vyk/commun/CHiME5/dev/CHIME.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/CHiME5/dev/CHIME.dev.txt
+        test:
+          annotation: /gpfswork/rech/vyk/commun/CHiME5/test/allU01_test.emmanuel.rttm
+          annotated: /gpfswork/rech/vyk/commun/CHiME5/test/CHIME.test.uem
+          domain: /gpfswork/rech/vyk/commun/CHiME5/test/CHIME.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/CHiME5/test/CHIME.test.txt
+  AMI:
+    SpeakerDiarization:
+      MixHeadset:
+        train:
+          annotation: /gpfswork/rech/vyk/commun/AMI/train/allMix-Headset_train.rttm
+          annotated: /gpfswork/rech/vyk/commun/AMI/train/AMI.train.uem
+          domain: /gpfswork/rech/vyk/commun/AMI/train/AMI.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/AMI/train/AMI.train.txt
+        development:
+          annotation: /gpfswork/rech/vyk/commun/AMI/dev/allMix-Headset_dev.rttm
+          annotated: /gpfswork/rech/vyk/commun/AMI/dev/AMI.dev.uem
+          domain: /gpfswork/rech/vyk/commun/AMI/dev/AMI.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/AMI/dev/AMI.dev.txt
+        test:
+          annotation: /gpfswork/rech/vyk/commun/AMI/test/allMix-Headset_test.rttm
+          annotated: /gpfswork/rech/vyk/commun/AMI/test/AMI.test.uem
+          domain: /gpfswork/rech/vyk/commun/AMI/test/AMI.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/AMI/test/AMI.test.txt
+      emmanuel:
+        train:
+          annotation: /gpfswork/rech/vyk/commun/AMI/train/allMix-Headset_train.emmanuel.rttm
+          annotated: /gpfswork/rech/vyk/commun/AMI/train/AMI.train.uem
+          domain: /gpfswork/rech/vyk/commun/AMI/train/AMI.domain.train.txt
+          uris: /gpfswork/rech/vyk/commun/AMI/train/AMI.train.txt
+        development:
+          annotation: /gpfswork/rech/vyk/commun/AMI/dev/allMix-Headset_dev.emmanuel.rttm
+          annotated: /gpfswork/rech/vyk/commun/AMI/dev/AMI.dev.uem
+          domain: /gpfswork/rech/vyk/commun/AMI/dev/AMI.domain.dev.txt
+          uris: /gpfswork/rech/vyk/commun/AMI/dev/AMI.dev.txt
+        test:
+          annotation: /gpfswork/rech/vyk/commun/AMI/test/allMix-Headset_test.emmanuel.rttm
+          annotated: /gpfswork/rech/vyk/commun/AMI/test/AMI.test.uem
+          domain: /gpfswork/rech/vyk/commun/AMI/test/AMI.domain.test.txt
+          uris: /gpfswork/rech/vyk/commun/AMI/test/AMI.test.txt
+  X:
+    SpeakerDiarization:
+      BabyTrainAll:
+        train:
+          BabyTrain.SpeakerDiarization.war2:
+          - train
+          BabyTrain.SpeakerDiarization.vanuatu:
+          - train
+          BabyTrain.SpeakerDiarization.tsimane:
+          - train
+          BabyTrain.SpeakerDiarization.tsay:
+          - train
+          BabyTrain.SpeakerDiarization.paido:
+          - train
+          BabyTrain.SpeakerDiarization.namibia:
+          - train
+          BabyTrain.SpeakerDiarization.lena:
+          - train
+          BabyTrain.SpeakerDiarization.aclew:
+          - train
+        development:
+          BabyTrain.SpeakerDiarization.war2:
+          - development
+          BabyTrain.SpeakerDiarization.vanuatu:
+          - development
+          BabyTrain.SpeakerDiarization.tsimane:
+          - development
+          BabyTrain.SpeakerDiarization.tsay:
+          - development
+          BabyTrain.SpeakerDiarization.paido:
+          - development
+          BabyTrain.SpeakerDiarization.namibia:
+          - development
+          BabyTrain.SpeakerDiarization.lena:
+          - development
+          BabyTrain.SpeakerDiarization.aclew:
+          - development
+        test:
+          BabyTrain.SpeakerDiarization.war2:
+          - test
+          BabyTrain.SpeakerDiarization.vanuatu:
+          - test
+          BabyTrain.SpeakerDiarization.tsimane:
+          - test
+          BabyTrain.SpeakerDiarization.tsay:
+          - test
+          BabyTrain.SpeakerDiarization.paido:
+          - test
+          BabyTrain.SpeakerDiarization.namibia:
+          - test
+          BabyTrain.SpeakerDiarization.lena:
+          - test
+          BabyTrain.SpeakerDiarization.aclew:
+          - test
+      BabyTrainAll_resplitted:
+        train:
+          BabyTrain_resplitted.SpeakerDiarization.war2:
+          - train
+          BabyTrain_resplitted.SpeakerDiarization.vanuatu:
+          - train
+          BabyTrain_resplitted.SpeakerDiarization.tsimane:
+          - train
+          BabyTrain_resplitted.SpeakerDiarization.tsay:
+          - train
+          BabyTrain_resplitted.SpeakerDiarization.paido:
+          - train
+          BabyTrain_resplitted.SpeakerDiarization.namibia:
+          - train
+          BabyTrain_resplitted.SpeakerDiarization.lena:
+          - train
+          BabyTrain_resplitted.SpeakerDiarization.aclew:
+          - train
+        development:
+          BabyTrain_resplitted.SpeakerDiarization.war2:
+          - development
+          BabyTrain_resplitted.SpeakerDiarization.vanuatu:
+          - development
+          BabyTrain_resplitted.SpeakerDiarization.tsimane:
+          - development
+          BabyTrain_resplitted.SpeakerDiarization.tsay:
+          - development
+          BabyTrain_resplitted.SpeakerDiarization.paido:
+          - development
+          BabyTrain_resplitted.SpeakerDiarization.namibia:
+          - development
+          BabyTrain_resplitted.SpeakerDiarization.lena:
+          - development
+          BabyTrain_resplitted.SpeakerDiarization.aclew:
+          - development
+        test:
+          BabyTrain_resplitted.SpeakerDiarization.vanuatu:
+          - test
+          BabyTrain_resplitted.SpeakerDiarization.tsimane:
+          - test
+          BabyTrain_resplitted.SpeakerDiarization.tsay:
+          - test
+          BabyTrain_resplitted.SpeakerDiarization.paido:
+          - test
+          BabyTrain_resplitted.SpeakerDiarization.namibia:
+          - test
+          BabyTrain_resplitted.SpeakerDiarization.lena:
+          - test
+          BabyTrain_resplitted.SpeakerDiarization.aclew:
+          - test
+      BBT2:
+        train:
+          BBT2.SpeakerDiarization.war2:
+          - train
+          BBT2.SpeakerDiarization.vanuatu:
+          - train
+          BBT2.SpeakerDiarization.tsimane:
+          - train
+          BBT2.SpeakerDiarization.tsay:
+          - train
+          BBT2.SpeakerDiarization.paido:
+          - train
+          BBT2.SpeakerDiarization.namibia:
+          - train
+          BBT2.SpeakerDiarization.lena:
+          - train
+          BBT2.SpeakerDiarization.aclew:
+          - train
+        development:
+          BBT2.SpeakerDiarization.war2:
+          - development
+          BBT2.SpeakerDiarization.vanuatu:
+          - development
+          BBT2.SpeakerDiarization.tsimane:
+          - development
+          BBT2.SpeakerDiarization.tsay:
+          - development
+          BBT2.SpeakerDiarization.paido:
+          - development
+          BBT2.SpeakerDiarization.namibia:
+          - development
+          BBT2.SpeakerDiarization.lena:
+          - development
+          BBT2.SpeakerDiarization.aclew:
+          - development
+        test:
+          BBT2.SpeakerDiarization.vanuatu:
+          - test
+          BBT2.SpeakerDiarization.tsimane:
+          - test
+          BBT2.SpeakerDiarization.tsay:
+          - test
+          BBT2.SpeakerDiarization.paido:
+          - test
+          BBT2.SpeakerDiarization.namibia:
+          - test
+          BBT2.SpeakerDiarization.lena:
+          - test
+          BBT2.SpeakerDiarization.aclew:
+          - test
+      BBTAMICHIME:
+        train:
+          BabyTrain.SpeakerDiarization.war2:
+          - train
+          BabyTrain.SpeakerDiarization.vanuatu:
+          - train
+          BabyTrain.SpeakerDiarization.tsimane:
+          - train
+          BabyTrain.SpeakerDiarization.tsay:
+          - train
+          BabyTrain.SpeakerDiarization.paido:
+          - train
+          BabyTrain.SpeakerDiarization.namibia:
+          - train
+          BabyTrain.SpeakerDiarization.lena:
+          - train
+          BabyTrain.SpeakerDiarization.aclew:
+          - train
+          AMI.SpeakerDiarization.MixHeadset:
+          - train
+          CHiME5.SpeakerDiarization.U01:
+          - train
+        development:
+          BabyTrain.SpeakerDiarization.war2:
+          - development
+          BabyTrain.SpeakerDiarization.vanuatu:
+          - development
+          BabyTrain.SpeakerDiarization.tsimane:
+          - development
+          BabyTrain.SpeakerDiarization.tsay:
+          - development
+          BabyTrain.SpeakerDiarization.paido:
+          - development
+          BabyTrain.SpeakerDiarization.namibia:
+          - development
+          BabyTrain.SpeakerDiarization.lena:
+          - development
+          BabyTrain.SpeakerDiarization.aclew:
+          - development
+          AMI.SpeakerDiarization.MixHeadset:
+          - development
+          CHiME5.SpeakerDiarization.U01:
+          - development
+        test:
+          BabyTrain.SpeakerDiarization.war2:
+          - test
+          BabyTrain.SpeakerDiarization.vanuatu:
+          - test
+          BabyTrain.SpeakerDiarization.tsimane:
+          - test
+          BabyTrain.SpeakerDiarization.tsay:
+          - test
+          BabyTrain.SpeakerDiarization.paido:
+          - test
+          BabyTrain.SpeakerDiarization.namibia:
+          - test
+          BabyTrain.SpeakerDiarization.lena:
+          - test
+          BabyTrain.SpeakerDiarization.aclew:
+          - test
+          AMI.SpeakerDiarization.MixHeadset:
+          - test
+          CHiME5.SpeakerDiarization.U01:
+          - test
