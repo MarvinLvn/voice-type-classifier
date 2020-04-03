@@ -17,7 +17,7 @@ task:
       regular: ['KCHI', 'CHI', 'MAL', 'FEM']
       union:
         SPEECH: ['KCHI', 'CHI', 'FEM', 'MAL', 'SPEECH']
-  name: DomainAdversarialMultilabel
+  name: DomainAdversarialMultilabelDetection
 architecture:
   params:
     sincnet:

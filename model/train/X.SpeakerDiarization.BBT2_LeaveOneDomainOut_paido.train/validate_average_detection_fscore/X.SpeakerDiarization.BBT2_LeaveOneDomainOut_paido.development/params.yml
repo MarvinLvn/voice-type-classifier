@@ -1,0 +1,61 @@
+CHI:
+  detection_fscore: 0.3046
+  params:
+    min_duration_off: 0.1
+    min_duration_on: 0.1
+    offset: 0.1570
+    onset: 0.1570
+    pad_offset: 0.0
+    pad_onset: 0.0
+FEM:
+  detection_fscore: 0.8421
+  params:
+    min_duration_off: 0.1
+    min_duration_on: 0.1
+    offset: 0.3583
+    onset: 0.3583
+    pad_offset: 0.0
+    pad_onset: 0.0
+KCHI:
+  detection_fscore: 0.8064
+  params:
+    min_duration_off: 0.1
+    min_duration_on: 0.1
+    offset: 0.3739
+    onset: 0.3739
+    pad_offset: 0.0
+    pad_onset: 0.0
+MAL:
+  detection_fscore: 0.4368
+  params:
+    min_duration_off: 0.1
+    min_duration_on: 0.1
+    offset: 0.1363
+    onset: 0.1363
+    pad_offset: 0.0
+    pad_onset: 0.0
+SPEECH:
+  detection_fscore: 0.9032
+  params:
+    min_duration_off: 0.1
+    min_duration_on: 0.1
+    offset: 0.4014
+    onset: 0.4014
+    pad_offset: 0.0
+    pad_onset: 0.0
+average_detection_fscore: 0.65862
+epoch: 100
+labels_spec:
+  intersection: {}
+  regular:
+  - KCHI
+  - CHI
+  - MAL
+  - FEM
+  union:
+    SPEECH:
+    - KCHI
+    - CHI
+    - MAL
+    - FEM
+    - SPEECH

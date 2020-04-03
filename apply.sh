@@ -1,34 +1,18 @@
 #!/usr/bin/env bash
 THISDIR="$( cd "$( dirname "$0" )" && pwd )"
 
-declare -a classes=(KCHI CHI MAL FEM SPEECH)
 
-declare -a folders=(
-"KCHI:model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_KCHI/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/apply/0100"
-"CHI:model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_CHI/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/apply/0100"
-"MAL:model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_MAL/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/apply/0100"
-"FEM:model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_FEM/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/apply/0100"
-"SPEECH:model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_SPEECH/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/apply/0100")
-
-
-# ./apply.sh my_folder KCHI
-if [ $# -ge 2 ]; then
-    declare -a classes=($2) # get the classes provided by the user
-fi;
-
-# ./apply.sh my_folder KCHI --gpu
+# ./apply.sh my_folder --gpu
 if [ $# -eq 3 ]; then
-    GPU=$3;
+    DEVICE=$3;
+else
+    DEVICE=--cpu
 fi;
 
-# ./apply.sh my_folder KCHI --gpu
-if [ $# -ge 4 ]; then
-    echo "Wrong call. Must provide 3 arguments at most."
-    echo "Example 1 :"
+if [ $# -ge 3 ]; then
+    echo "Wrong call. Must provide 2 arguments at most."
+    echo "Example :"
     echo "./apply.sh /path/to/my/folder (--gpu)"
-    echo "Example 2:"
-    echo "./apply.sh /path/to/my/folder/ \"CHI MAL\" (--gpu)"
-    exit
 fi;
 
 
@@ -39,8 +23,8 @@ if [ "$(ls -A $1/*.wav)" ]; then
     bn=$(basename $1)
     echo "Creating config for pyannote."
     # Create pyannote_tmp_config containing all the necessary files
-    rm -rf $THISDIR/pyannote_tmp_config
-    mkdir $THISDIR/pyannote_tmp_config
+    rm -rf $THISDIR/pyannote_tmp_config/$bn
+    mkdir -p $THISDIR/pyannote_tmp_config/$bn
 
     # Create database.yml
     echo "Databases:
@@ -51,35 +35,34 @@ Protocols:
     SpeakerDiarization:
       All:
         test:
-          annotated: $THISDIR/pyannote_tmp_config/$bn.uem" > $THISDIR/pyannote_tmp_config/database.yml
+          annotated: $THISDIR/pyannote_tmp_config/$bn/$bn.uem" > $THISDIR/pyannote_tmp_config/$bn/database.yml
 
     # Create .uem file
     for audio in $1/*.wav; do
         duration=$(soxi -D $audio)
         echo "$(basename ${audio/.wav/}) 1 0.0 $duration"
-    done > $THISDIR/pyannote_tmp_config/$bn.uem
+    done > $THISDIR/pyannote_tmp_config/$bn/$bn.uem
     echo "Done creating config for pyannote."
 
-    export PYANNOTE_DATABASE_CONFIG=$THISDIR/pyannote_tmp_config/database.yml
+    export PYANNOTE_DATABASE_CONFIG=$THISDIR/pyannote_tmp_config/$bn/database.yml
 
     OUTPUT=output_voice_type_classifier/$bn/
     mkdir -p output_voice_type_classifier/$bn/
 
-    for couple in ${folders[*]}; do
-        class="${couple%%:*}"
-        class_model_path="${couple##*:}"
+    BEST_EPOCH=$(cat model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_average_detection_fscore/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/params.yml | grep -oP "(?<=epoch: )\d+")
+    BEST_EPOCH=$(printf %04d $BEST_EPOCH)
 
-        # Check current class is in classes (provided by the user or by default the KCHI CHI MAL FEM SPEECH)
-        if [[ ${classes[*]} =~ (^|[[:space:]])${class}($|[[:space:]]) ]]; then
-            echo "Extracting $class"
-            pyannote-multilabel apply $GPU --subset=test $THISDIR/model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_$class/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development $bn.SpeakerDiarization.All
-            awk -F' ' -v var="$class" 'BEGIN{OFS = "\t"}{print $1,$2,$3,$4,$5,$6,$7,var,$9,$10}' $THISDIR/${class_model_path}/$bn.SpeakerDiarization.All.test.rttm \
-                > $OUTPUT/$class.rttm
-        fi;
-    done;
+    VAL_DIR=$THISDIR/model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_average_detection_fscore/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development
+
+    # Check current class is in classes (provided by the user or by default the KCHI CHI MAL FEM SPEECH)
+    pyannote-audio mlt apply $DEVICE --subset=test $VAL_DIR $bn.SpeakerDiarization.All
+    classes=(KCHI CHI MAL FEM SPEECH)
+    for class in ${classes[*]}; do
+        mv ${VAL_DIR}/apply/${BEST_EPOCH}/$bn.SpeakerDiarization.All.test.$class.rttm $OUTPUT/$class.rttm
+    done
 
     # Clean up
-    rm -rf $THISDIR/${class_model_path}
+    rm -rf ${VAL_DIR}/apply
     rm -f $OUTPUT/all.rttm
     cat $OUTPUT/*.rttm > $OUTPUT/all.rttm
 
