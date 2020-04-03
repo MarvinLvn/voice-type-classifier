@@ -1,4 +1,0 @@
-[submodule "pyannote/pyannote-audio"]
-	path = pyannote/pyannote-audio
-	url = https://github.com/jsalt-coml/pyannote-audio
-	branch = bredin-pr

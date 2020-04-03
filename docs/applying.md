@@ -7,7 +7,7 @@ conda activate pyannote # or source activate pyannote, depending on your config
 ```
 
 The code consists mainly of a wrapper of pyannote-audio's code responsible for applying a model.
-If you want to go further by retraining the model, you should go around [here](https://github.com/pyannote/pyannote-audio) and [there](https://github.com/jsalt-coml/pyannote-audio/tree/bredin-pr).
+If you want to go further by retraining the model, you should go around [here](https://github.com/MarvinLvn/pyannote-audio/tree/voice_type_classifier).
 
 That being said, you can apply our pre-trained model by typing :
 
@@ -19,22 +19,10 @@ where **/path/to/my_recordings/** is a folder containing audio recordings in the
 This will actually apply 5 models (each for one of the class), which can take some time.
 The flag ***--gpu*** indicates if the model should be run on gpu or not. If this flag is not provided, the model will run on CPU.
 
-If you just need to consider one class, you can type
-
-```bash
-./apply.sh /path/to/my_recordings/ SPEECH --gpu
-```
-
-or if you want to apply the model to a subset of classes : 
-```bash
-./apply.sh /path/to/my_recordings/ "KCHI FEM" --gpu
-```
-
-And this will apply the model in charge of predicting the **SPEECH** class.
-
 # Output format
 
-The above commands will generate a ***output_voice_type_classifier*** folder, itself containing sub-folders named after the folder you applied the model on. Let's assume we applied the model on the ***my_recordings1***  and ***my_recordings2*** folder :
+The above commands will generate a ***output_voice_type_classifier*** folder, itself containing sub-folders named after the folder you applied the model on. 
+Let's assume we applied the model on the ***my_recordings1***  and ***my_recordings2*** folder :
 
 ```bash
 ls output_voice_type_classifier/
@@ -68,7 +56,7 @@ SPEAKER	my_recording_number2	1	1.284	0.332	<NA>	<NA>	KCHI	<NA>	<NA>
 ```
 
 Where :
-- each line corresponds to a speech utterance
+- each line corresponds to a speech/vocalization utterance
 - the second column is the name of the file concerned by this utterance
 - the fourth column is the onset of the utterance
 - the fifth column is the duration of the utterance
