@@ -15,12 +15,27 @@ if [ $# -ge 3 ]; then
     echo "./apply.sh /path/to/my/folder (--gpu)"
 fi;
 
+if [[ "$1" == *.wav ]]; then
+    # We want to apply the model on a single wav
+    EXT=""
+else
+    # We want to apply the model on a folder containing wav files
+    EXT="/*.wav"
+fi
 
 
-if [ "$(ls -A $1/*.wav)" ]; then
-    echo "Found wav files."
+if [[ "$(ls -A $1$EXT)" ]]; then
 
     bn=$(basename $1)
+
+    if [[ "$1" == *.wav ]]; then
+        bn=${bn/.wav/}
+        DB_PATH="$(dirname $1)/{uri}.wav"
+    else
+        DB_PATH="$1/{uri}.wav"
+    fi;
+
+
     echo "Creating config for pyannote."
     # Create pyannote_tmp_config containing all the necessary files
     rm -rf $THISDIR/pyannote_tmp_config/$bn
@@ -28,7 +43,7 @@ if [ "$(ls -A $1/*.wav)" ]; then
 
     # Create database.yml
     echo "Databases:
-    $bn: $1/{uri}.wav
+    $bn: ${DB_PATH}
 
 Protocols:
   $bn:
@@ -38,10 +53,11 @@ Protocols:
           annotated: $THISDIR/pyannote_tmp_config/$bn/$bn.uem" > $THISDIR/pyannote_tmp_config/$bn/database.yml
 
     # Create .uem file
-    for audio in $1/*.wav; do
+    for audio in $(ls -A $1$EXT); do
         duration=$(soxi -D $audio)
         echo "$(basename ${audio/.wav/}) 1 0.0 $duration"
     done > $THISDIR/pyannote_tmp_config/$bn/$bn.uem
+
     echo "Done creating config for pyannote."
 
     export PYANNOTE_DATABASE_CONFIG=$THISDIR/pyannote_tmp_config/$bn/database.yml
@@ -56,6 +72,7 @@ Protocols:
 
     # Check current class is in classes (provided by the user or by default the KCHI CHI MAL FEM SPEECH)
     pyannote-audio mlt apply $DEVICE --subset=test $VAL_DIR $bn.SpeakerDiarization.All
+
     classes=(KCHI CHI MAL FEM SPEECH)
     for class in ${classes[*]}; do
         mv ${VAL_DIR}/apply/${BEST_EPOCH}/$bn.SpeakerDiarization.All.test.$class.rttm $OUTPUT/$class.rttm

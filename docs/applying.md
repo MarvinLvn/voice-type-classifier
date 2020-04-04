@@ -19,6 +19,11 @@ where **/path/to/my_recordings/** is a folder containing audio recordings in the
 This will actually apply 5 models (each for one of the class), which can take some time.
 The flag ***--gpu*** indicates if the model should be run on gpu or not. If this flag is not provided, the model will run on CPU.
 
+You can also apply the model to a single audio file :
+
+```bash
+./apply.sh /path/to/my_recordings/my_recording.wav --gpu
+```
 # Output format
 
 The above commands will generate a ***output_voice_type_classifier*** folder, itself containing sub-folders named after the folder you applied the model on. 

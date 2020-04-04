@@ -6,7 +6,8 @@ for speaker diarization: speech activity detection, speaker change detection, sp
 ```bash
 # Step 1:  install from source
 $ git clone https://github.com/MarvinLvn/voice_type_classifier.git
-$ cd voice_type_classifier/pyannote
+$ cd voice_type_classifier
+$ git clone https://github.com/MarvinLvn/pyannote-audio.git
 $ cd pyannote-audio
 $ git checkout voice_type_classifier
 
