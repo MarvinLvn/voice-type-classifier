@@ -71,7 +71,7 @@ Protocols:
     VAL_DIR=$THISDIR/model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_average_detection_fscore/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development
 
     # Check current class is in classes (provided by the user or by default the KCHI CHI MAL FEM SPEECH)
-    pyannote-audio mlt apply $DEVICE --subset=test $VAL_DIR $bn.SpeakerDiarization.All
+    pyannote-audio mlt apply $DEVICE --subset=test --parallel=8 $VAL_DIR $bn.SpeakerDiarization.All
 
     classes=(KCHI CHI MAL FEM SPEECH)
     for class in ${classes[*]}; do
@@ -79,7 +79,7 @@ Protocols:
     done
 
     # Clean up
-    rm -rf ${VAL_DIR}/apply
+    rm -rf ${VAL_DIR}/apply/apply/${BEST_EPOCH}/$bn
     rm -f $OUTPUT/all.rttm
     cat $OUTPUT/*.rttm > $OUTPUT/all.rttm
 
