@@ -3,8 +3,8 @@ THISDIR="$( cd "$( dirname "$0" )" && pwd )"
 
 
 # ./apply.sh my_folder --gpu
-if [ $# -eq 3 ]; then
-    DEVICE=$3;
+if [ $# -eq 2 ]; then
+    DEVICE=$2;
 else
     DEVICE=--cpu
 fi;
