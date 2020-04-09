@@ -11,6 +11,15 @@ if [ $sox_installed != "sox" ]; then
     exit
 fi;
 
+# Check pyannote-audio has been installed
+pyannote_installed=$(pyannote-audio --version)
+pyannote_installed=${pyannote_installed:0:14}
+if [ $pyannote_installed != "pyannote-audio" ]; then
+    echo "pyannote-audio can't be found."
+    echo "Check that you activated your conda environment and than you installed pyannote-audio."
+    exit
+fi;
+
 if [ $# -ge 4 ]; then
     echo "Wrong call. Must provide 2 arguments at most."
     echo "Example :"
