@@ -3,6 +3,14 @@
 start=`date +%s`
 THISDIR="$( cd "$( dirname "$0" )" && pwd )"
 
+# Check sox has been installed
+sox_installed=$(sox --version)
+sox_installed=${sox_installed:0:3}
+if [ $sox_installed != "sox" ]; then
+    echo "Sox can't be found. Please intall sox before running this script"
+    exit
+fi;
+
 if [ $# -ge 4 ]; then
     echo "Wrong call. Must provide 2 arguments at most."
     echo "Example :"
