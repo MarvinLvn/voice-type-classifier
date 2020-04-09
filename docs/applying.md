@@ -12,17 +12,17 @@ If you want to go further by retraining the model, you should go around [here](h
 That being said, you can apply our pre-trained model by typing :
 
 ```bash
-./apply.sh /path/to/my_recordings/ --gpu
+./apply.sh /path/to/my_recordings/ --device=gpu
 ```
 
 where **/path/to/my_recordings/** is a folder containing audio recordings in the .wav format (single-channel, 16kHz). 
 This will actually apply 5 models (each for one of the class), which can take some time.
-The flag ***--gpu*** indicates if the model should be run on gpu or not. If this flag is not provided, the model will run on CPU.
+The flag ***--device=gpu*** indicates if the model should be run on gpu or not. If this flag is not provided, the model will run on CPU.
 
 You can also apply the model to a single audio file :
 
 ```bash
-./apply.sh /path/to/my_recordings/my_recording.wav --gpu
+./apply.sh /path/to/my_recordings/my_recording.wav --device=gpu
 ```
 # Output format
 

@@ -2,18 +2,25 @@
 THISDIR="$( cd "$( dirname "$0" )" && pwd )"
 
 
-# ./apply.sh my_folder --gpu
-if [ $# -eq 2 ]; then
-    DEVICE=$2;
-else
-    DEVICE=--cpu
-fi;
-
-if [ $# -ge 3 ]; then
+if [ $# -ge 4 ]; then
     echo "Wrong call. Must provide 2 arguments at most."
     echo "Example :"
-    echo "./apply.sh /path/to/my/folder (--gpu)"
+    echo "./apply.sh /path/to/my/folder (--device=gpu) (--batch=128)"
+    exit
 fi;
+
+
+# Parsing arguments such as provided by the user
+DEVICE="cpu"
+BATCH="32"
+for i in {2..3}; do
+    ARG=${!i}
+    if [ "${ARG%=*}" == "--device" ]; then
+        DEVICE=${ARG#*device=}
+    elif [ "${ARG%=*}" == "--batch" ]; then
+        BATCH=${ARG#*batch=}
+    fi
+done
 
 if [[ "$1" == *.wav ]]; then
     # We want to apply the model on a single wav
@@ -71,7 +78,13 @@ Protocols:
     VAL_DIR=$THISDIR/model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_average_detection_fscore/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development
 
     # Check current class is in classes (provided by the user or by default the KCHI CHI MAL FEM SPEECH)
-    pyannote-audio mlt apply $DEVICE --subset=test --parallel=8 $VAL_DIR $bn.SpeakerDiarization.All
+    pyannote-audio mlt apply --$DEVICE --batch=$BATCH --subset=test --parallel=8 $VAL_DIR $bn.SpeakerDiarization.All
+
+    if [ $? -ne 0 ]; then
+        echo "Something went wrong when applying the model"
+        echo "Aborting."
+        exit
+    fi
 
     classes=(KCHI CHI MAL FEM SPEECH)
     for class in ${classes[*]}; do
