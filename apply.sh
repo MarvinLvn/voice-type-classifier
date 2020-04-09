@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-THISDIR="$( cd "$( dirname "$0" )" && pwd )"
 
+start=`date +%s`
+THISDIR="$( cd "$( dirname "$0" )" && pwd )"
 
 if [ $# -ge 4 ]; then
     echo "Wrong call. Must provide 2 arguments at most."
@@ -104,3 +105,7 @@ Protocols:
 else
     echo "The folder you provided doesn't contain any wav files."
 fi;
+
+end=`date +%s`
+runtime=$((end-start))
+echo "Took $runtime sec on $bn."
