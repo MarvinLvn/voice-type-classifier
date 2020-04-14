@@ -40,7 +40,8 @@ for i in {2..3}; do
     fi
 done
 
-if [[ "$1" == *.wav ]]; then
+TARGET_PATH=$(echo "$(cd "$(dirname "$1")"; pwd)/$(basename "$1")")
+if [[ "${TARGET_PATH}" == *.wav ]]; then
     # We want to apply the model on a single wav
     EXT=""
 else
@@ -48,16 +49,15 @@ else
     EXT="/*.wav"
 fi
 
+if [[ "$(ls -A ${TARGET_PATH}$EXT)" ]]; then
 
-if [[ "$(ls -A $1$EXT)" ]]; then
+    bn=$(basename ${TARGET_PATH})
 
-    bn=$(basename $1)
-
-    if [[ "$1" == *.wav ]]; then
+    if [[ "${TARGET_PATH}" == *.wav ]]; then
         bn=${bn/.wav/}
-        DB_PATH="$(dirname $1)/{uri}.wav"
+        DB_PATH="$(dirname ${TARGET_PATH})/{uri}.wav"
     else
-        DB_PATH="$1/{uri}.wav"
+        DB_PATH="${TARGET_PATH}/{uri}.wav"
     fi;
 
 
@@ -78,7 +78,7 @@ Protocols:
           annotated: $THISDIR/pyannote_tmp_config/$bn/$bn.uem" > $THISDIR/pyannote_tmp_config/$bn/database.yml
 
     # Create .uem file
-    for audio in $(ls -A $1$EXT); do
+    for audio in $(ls -A ${TARGET_PATH}$EXT); do
         duration=$(soxi -D $audio)
         echo "$(basename ${audio/.wav/}) 1 0.0 $duration"
     done > $THISDIR/pyannote_tmp_config/$bn/$bn.uem
