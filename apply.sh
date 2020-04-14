@@ -90,8 +90,10 @@ Protocols:
     OUTPUT=output_voice_type_classifier/$bn/
     mkdir -p output_voice_type_classifier/$bn/
 
-    BEST_EPOCH=$(cat model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_average_detection_fscore/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/params.yml | grep -oP "(?<=epoch: )\d+")
-    BEST_EPOCH=$(printf %04d $BEST_EPOCH)
+    # Commenting these 2 lines as grep can't be problematic on MAC distrib.
+    #BEST_EPOCH=$(cat model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_average_detection_fscore/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development/params.yml | grep -oP "(?<=epoch: )\d+")
+    #BEST_EPOCH=$(printf %04d $BEST_EPOCH)
+    BEST_EPOCH=0100
 
     VAL_DIR=$THISDIR/model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_average_detection_fscore/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development
 
