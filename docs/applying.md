@@ -9,6 +9,7 @@ conda activate pyannote # or source activate pyannote, depending on your config
 The code consists mainly of a wrapper of pyannote-audio's code responsible for applying a model.
 If you want to go further by retraining the model, you should go around [here](https://github.com/MarvinLvn/pyannote-audio/tree/voice_type_classifier).
 
+First, make sure that you are in the ***voice_type_classifier*** repository.
 That being said, you can apply our pre-trained model by typing :
 
 ```bash
