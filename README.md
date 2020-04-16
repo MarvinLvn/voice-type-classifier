@@ -1,6 +1,6 @@
 # SincNet and LSTM based Voice Type Classifier
 
-![Architecture of our model](./docs/archi_sincnet.png)
+![Architecture of our model](docs/figures/archi_sincnet.png)
 
 In this repository, you'll find all the necessary code for applying a pre-trained model that, given an audio recording, classifies each frame into **[SPEECH, KCHI, CHI, MAL, FEM]**.
 - FEM stands for female speech
