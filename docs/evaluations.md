@@ -12,6 +12,7 @@ The following table shows real time factors you can expect from the model.
 | 64 | 1/45 |0.26 |
 | 128 | OOM* | 0.25 |
 | 256 | OOM | 0.24 |
+
 ***Tab 0. Running times as a function of the batch size and the device.***
 
 It takes roughly 1/35 of the audio duration to run the model with a batch of size 32 on GPU.
@@ -34,6 +35,7 @@ All the results are given in terms of ***fscore*** between ***precision*** and *
 | MAL | 0.43 | 0.44 | 43.73 |
 | SPEECH | 0.89 | 0.91 | 90.33 |
 | AVE | 0.71 | 0.69 | 65.91 | 
+
 ***Tab 1. Performances of our model on the development set.***
 
 
@@ -45,6 +47,7 @@ All the results are given in terms of ***fscore*** between ***precision*** and *
 | MAL | 0.38 | 0.48 | 42.25 | 
 | SPEECH | 0.86 | 0.92 | 88.45 |
 | AVE |0.60 | 0.68 | 63.22 |
+
 ***Tab 2. Performances of our model on the test set.***
 
 
@@ -110,6 +113,7 @@ However, in all fairness, we explore alternative choices in the section showing 
 | MAL | 0.40 | 0.47 | 42.91 |
 | SPEECH | 0.77 | 0.80 | 78.43 |
 | AVE |0.59 | 0.57 | 57.37 |
+
 ***Tab 3. Performances of our model on the held-out set.***
 
 
@@ -121,6 +125,7 @@ However, in all fairness, we explore alternative choices in the section showing 
 | MAL | 43.57 | 32.5 | 37.23 |
 | SPEECH | 65.04 | 76.35 | 70.24 |
 | AVE | 52.15 | 44.17 | 46.73 |
+
 ***Tab 4. Performances of the LENA model on the held-out set.***
 
 
