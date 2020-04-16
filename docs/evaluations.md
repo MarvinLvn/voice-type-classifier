@@ -144,9 +144,9 @@ There are multiple ways to draw confusion matrices looking at either the SPEECH 
 As LENA does not return a SPEECH class, we aggregated the voice types [KCHI, OCH, MAL, FEM] into one single SPEECH class.
 
 Choices : 
-- **SPEECH** built from the union of [**KCHI**, **OCH**, **MAL**, **FEM**]
+- **SPEECH** built from the union of [**KCHI**, **OCH**, **MAL**, **FEM**] for both LENA and gold labels
 
-LENA precision            |  LENA recall
+Precision of LENA            |  Recall of LENA
 :-------------------------:|:-------------------------:
 ![](figures/confusion_matrices/lena/speech_vs_sil_precision_lena.png) | ![](figures/confusion_matrices/lena/speech_vs_sil_recall_lena.png)
 
@@ -157,7 +157,7 @@ Choices :
 - **OVL** considered "as-is" for LENA labels.
 - **ELE** considered "as-is" for LENA and gold labels.
 
-LENA precision            |  LENA recall
+Precision of LENA            |  Recall of LENA
 :-------------------------:|:-------------------------:
 ![](figures/confusion_matrices/lena/full_precision_lena.png) | ![](figures/confusion_matrices/lena/full_recall_lena.png)
 
@@ -169,12 +169,42 @@ Choices :
 - Frames belonging to multiple classes according to the human annotators count for all the classes they've been classified as
  (if a frame has been annotated as belonging to both **KCHI** and **FEM**, this frame counts as 1 success and 1 failure, 2 successes, or 2 failures depending on the model's prediction).
 
-LENA precision            |  LENA recall
+Precision of LENA            |  Recall of LENA
 :-------------------------:|:-------------------------:
 ![](figures/confusion_matrices/lena/full_no_ovl_precision_lena.png) | ![](figures/confusion_matrices/lena/full_no_ovl_recall_lena.png)
 
 ### Confusion matrices for our model
 
+#### Speech / Non Speech
+
+Choices : 
+- **SPEECH** built from the union of [**KCHI**, **OCH**, **MAL**, **FEM**] for gold labels
+- **SPEECH** considered "as-is" for our model
+
+ Precision of our model            |  Recall of our model
+:-------------------------:|:-------------------------:
+![](figures/confusion_matrices/model/speech_vs_sil_precision_model.png) | ![](figures/confusion_matrices/model/speech_vs_sil_recall_model.png)
+
+### Voice types with UNK class
+
+Choices :
+- **KCHI**, **OCH**, **MAL**, **FEM** considered "as-is" for our model and the human reference
+- **UNK**, for unknown, correspond to frames that have been classified as belonging only to the **SPEECH** class (and not one of the voice type) by our model.
+
+ Precision of our model            |  Recall of our model
+:-------------------------:|:-------------------------:
+![](figures/confusion_matrices/model/half_full_precision_model.png) | ![](figures/confusion_matrices/model/half_full_recall_model.png)
+
+### Voice types depending on whether they're accompanied of SPEECH class or not
+
+Choices:
+- **KCHI_nsp** classes correspond to frames that have been classified as belonging to **KCHI** but not belonging to **SPEECH** (same for the other classes).
+- **KCHI_sp** classes correspond to frames that have been classified as belonging to both **KCHI** and **SPEECH** by our model (same for the other classes).
+- **UNK**, for unknown, correspond to frames that have been classified as belonging only to the **SPEECH** class (and not one of the voice type) by our model.
+
+Precision of our model            |  Recall of our model
+:-------------------------:|:-------------------------:
+![](figures/confusion_matrices/model/full_precision_model.png) | ![](figures/confusion_matrices/model/full_recall_model.png)
 
 ### References
 
