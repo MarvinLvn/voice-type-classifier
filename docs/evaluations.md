@@ -16,7 +16,7 @@ The following table shows real time factors you can expect from the model.
 ***Tab 0. Running times as a function of the batch size and the device.***
 
 It takes roughly 1/35 of the audio duration to run the model with a batch of size 32 on GPU.
-Similarly, it takes approximatively 1/4 of the audio duration to run the model on CPU.
+Similarly, it takes approximately 1/4 of the audio duration to run the model on CPU.
 
 *OOM stands for out of memory.
 
@@ -24,6 +24,7 @@ Similarly, it takes approximatively 1/4 of the audio duration to run the model o
 
 Here are the results computed on the development set and the test set of BabyTrain (whose Paido domain has been removed).
 All the results are given in terms of ***fscore*** between ***precision*** and ***recall*** such as computed in [pyannote-metrics](https://github.com/pyannote/pyannote-metrics).
+The AVE. row shows average performances across classes.
 
 
 
@@ -54,13 +55,14 @@ All the results are given in terms of ***fscore*** between ***precision*** and *
 The tresholds that decide whether each class is activated or not have been computed on the development set.
 If you have some annotations, you can fine-tune these tresholds on your own dataset. 
 
-Depending on your application, you might also want to optimize more the precision than the recall (or vice-versa).
-With pyannote-audio, you can optimize these tresholds on the recall while fixing the precision.
+Depending on your goal, you might also want to optimize more the precision than the recall (or vice-versa).
+With [pyannote-audio](https://github.com/MarvinLvn/pyannote-audio/tree/voice_type_classifier), you can maximize these tresholds based on the recall while fixing the precision.
 
 By doing so, you can end up with a model having a high precision/low recall or low precision/high recall, which might be useful for some applications.
 For instance, we might have some data that we'd like to annotate, but we'd like to focus the annotation campaign on the key-child to study how much the latter is vocalizing.
-In that case, it'd be useful to run a model that has a high precision but low recall on the dataset. That way, we can extract moments when we are almost sure that the key-child (accepting that we miss some of these moments) is vocalizing and we can provide these moments to the human annotators.
-
+In that case, it'd be useful to run a model that has a high precision but low recall on the dataset. That way, we can extract moments when we are almost sure that the key-child is vocalizing, accepting that we miss some of these moments.
+Conversely, we might want to extract all the moments where the key child is vocalizing, accepting we'll have some false alarms. In that case, we'd like to have a model with a low precision, but high recall.
+In the absence of prior knowledge on the application, optimizing the fscore between precision and recall seems a good strategy.
 
 For illustrative purposes, here's the precision/recall (computed on the development set) curves for each of the class : 
 
@@ -80,7 +82,8 @@ Comparing these 2 approaches requires us to make some choices :
 
 1) The LENA original model returns the following classes : **CHF**,**CHN**,**CXN**,**CXF**,**FAN**,**FAN**,**MAN**,**MAF**,etc.
 The **N** stands for "near" whereas the **F** stands for "far". We need to map this set of input labels in a new set
-containing only the labels **KCHI**, **CHI**, **MAL**, **FEM**, and **SPEECH**. 
+containing only the labels **KCHI**, **CHI**, **MAL**, **FEM**, and **SPEECH**. That way we can compare the predictions made by the model
+with the human-made annotations.
 A choice could be to map **CHF**, and **CHN** to **KCHI**, or we could map **CHN** to **KCHI** and **CHF** to **SIL** for instance.
 Here, we chose the mapping that leads to best performances for LENA. That consists of keeping only the **N** classes, and mapping the **F** classes to **SIL**.
 
@@ -92,7 +95,7 @@ Another option might consist of not creating the **OVL** class, keeping human-ma
 In which case a model would have to predict multiple classes at the same time, the same way human did.
 
 3) What to do with the **ELE** class ?
-For knowing what are LENA performances on this class, you can refer to [1].
+For knowing what are LENA performances on this class, you can refer to [[1]](https://www.researchgate.net/publication/334855802_A_thorough_evaluation_of_the_Language_Environment_Analysis_LENATM_system).
 One choice could be to completely discard this class as our model doesn't predict electronical noises.
 Or, and since our held-out set has been annotated for this class, we coud have a look at the distribution of predictions
 for electronical noises to answer the following question : are electronical noises classified as speech ?
@@ -143,7 +146,7 @@ There are multiple ways to draw confusion matrices looking at either the SPEECH 
 
 As LENA does not return a SPEECH class, we aggregated the voice types [KCHI, OCH, MAL, FEM] into one single SPEECH class.
 
-Choices : 
+_Choices :_ 
 - **SPEECH** built from the union of [**KCHI**, **OCH**, **MAL**, **FEM**] for both LENA and gold labels
 
 Precision of LENA            |  Recall of LENA
@@ -152,10 +155,10 @@ Precision of LENA            |  Recall of LENA
 
 #### Voice types with OVL class
 
-Choices : 
+_Choices :_ 
 - **OVL** built from the intersection of [**KCHI**, **OCH**, **MAL**, **FEM**] for gold labels.
-- **OVL** considered "as-is" for LENA labels.
-- **ELE** considered "as-is" for LENA and gold labels.
+- **OVL** considered "as is" for LENA labels.
+- **ELE** considered "as is" for LENA and gold labels.
 
 Precision of LENA            |  Recall of LENA
 :-------------------------:|:-------------------------:
@@ -163,7 +166,7 @@ Precision of LENA            |  Recall of LENA
 
 #### Voice types without OVL class
 
-Choices : 
+_Choices :_ 
 - **OVL** class discarded for LENA (mapped to SIL).
 - **ELE** class discarded for LENA and gold (mapped to SIL).
 - Frames belonging to multiple classes according to the human annotators count for all the classes they've been classified as
@@ -177,9 +180,9 @@ Precision of LENA            |  Recall of LENA
 
 #### Speech / Non Speech
 
-Choices : 
+_Choices :_ 
 - **SPEECH** built from the union of [**KCHI**, **OCH**, **MAL**, **FEM**] for gold labels
-- **SPEECH** considered "as-is" for our model
+- **SPEECH** considered "as is" for our model
 
  Precision of our model            |  Recall of our model
 :-------------------------:|:-------------------------:
@@ -187,17 +190,17 @@ Choices :
 
 ### Voice types with UNK class
 
-Choices :
-- **KCHI**, **OCH**, **MAL**, **FEM** considered "as-is" for our model and the human reference
+_Choices :_
+- **KCHI**, **OCH**, **MAL**, **FEM** considered "as is" for our model and the human reference
 - **UNK**, for unknown, correspond to frames that have been classified as belonging only to the **SPEECH** class (and not one of the voice type) by our model.
 
  Precision of our model            |  Recall of our model
 :-------------------------:|:-------------------------:
 ![](figures/confusion_matrices/model/half_full_precision_model.png) | ![](figures/confusion_matrices/model/half_full_recall_model.png)
 
-### Voice types depending on whether they're accompanied of SPEECH class or not
+### Voice types depending on whether they're accompanied of the SPEECH class or not
 
-Choices:
+_Choices :_
 - **KCHI_nsp** classes correspond to frames that have been classified as belonging to **KCHI** but not belonging to **SPEECH** (same for the other classes).
 - **KCHI_sp** classes correspond to frames that have been classified as belonging to both **KCHI** and **SPEECH** by our model (same for the other classes).
 - **UNK**, for unknown, correspond to frames that have been classified as belonging only to the **SPEECH** class (and not one of the voice type) by our model.
