@@ -202,9 +202,13 @@ Choices:
 - **KCHI_sp** classes correspond to frames that have been classified as belonging to both **KCHI** and **SPEECH** by our model (same for the other classes).
 - **UNK**, for unknown, correspond to frames that have been classified as belonging only to the **SPEECH** class (and not one of the voice type) by our model.
 
-Precision of our model            |  Recall of our model
-:-------------------------:|:-------------------------:
-![](figures/confusion_matrices/model/full_precision_model.png) | ![](figures/confusion_matrices/model/full_recall_model.png)
+Precision of our model|
+:-------------------------:|
+![](figures/confusion_matrices/model/full_precision_model.png) |
+
+ Recall of our model|
+ :-------------------------:|
+![](figures/confusion_matrices/model/full_recall_model.png) |
 
 ### References
 
