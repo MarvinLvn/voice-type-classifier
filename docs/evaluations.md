@@ -69,6 +69,7 @@ For illustrative purposes, here's the precision/recall (computed on the developm
 ![](figures/precall.png)
 
 
+
 ## Performances on the held-out set 
 
 We compute the performances on the held-out set, a set that has never been seen during the training (neither by our model nor by LENA's one).
@@ -229,7 +230,7 @@ Precision of our model|
 ![](figures/confusion_matrices/model/full_recall_model.png) |
 
 
-Observation :
+_Observations :_
 
 - Relatively high confusion between **KCHI** and **OCH**
 - 67% of frames classified as electronical noises by the human are classified as **SIL** by our model
