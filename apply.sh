@@ -1,7 +1,18 @@
 #!/usr/bin/env bash
 
 start=`date +%s`
-THISDIR="$( cd "$( dirname "$0" )" && pwd )"
+
+# check if script is started via SLURM or bash
+# if with SLURM: there variable '$SLURM_JOB_ID' will exist
+# `if [ -n $SLURM_JOB_ID ]` checks if $SLURM_JOB_ID is not an empty string
+if [ -n $SLURM_JOB_ID ];  then
+    # check the original location through scontrol and $SLURM_JOB_ID
+    THISDIR=$(scontrol show job $SLURM_JOBID | awk -F= '/Command=/{print $2}' | sed -e 's/\s.*$//')
+    THISDIR=$(dirname $THISDIR)
+else
+    # otherwise: started with bash. Get the real location.
+    THISDIR="$( cd "$( dirname "$0" )" && pwd )"
+fi
 
 # Check sox has been installed
 sox_installed=$(sox --version)
