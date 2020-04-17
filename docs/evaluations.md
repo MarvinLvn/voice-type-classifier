@@ -103,7 +103,7 @@ for electronical noises to answer to get to know if electronical noises are clas
 In ***Tab 3.*** and ***Tab 4.***, we chose the optimal mapping for LENA. 
 We also decided to keep human-made labels untouched. That means that we do not consider any **OVL** class, but overlapping moments are considered in the evaluation.
 If a given frame has been annotated as belonging to both **KCHI** and **FEM**, the model is also gonna be expected to return these 2 classes.
-In other words, all the classes are evaluated separately as binary classification problems : KCHI vs non-KCHI, KCHI including key-child vocalizations overlapping with anything else.
+In other words, all the classes are evaluated separately as binary classification problems : **KCHI** vs **non-KCHI**, **KCHI** including key-child vocalizations overlapping with anything else.
 We are aware that this choice potentially advantages our model over LENA. 
 But we think that by doing so, we penalize LENA's design that is less informative than our model in case of overlapping speech.
 However, in all fairness, we explore alternative choices in the section showing the confusion matrices. 
@@ -141,7 +141,7 @@ at the confusion matrices.
 
 ### Confusion matrices for LENA
 
-There are multiple ways to draw confusion matrices looking at either the SPEECH vs NON-SPEECH frames, or looking at the confusion matrix showing the voice types.
+There are multiple ways to draw confusion matrices looking at either the **SPEECH** vs **NON-SPEECH** frames, or looking at the confusion matrix showing the voice types.
 
 #### Speech / Non Speech
 
@@ -179,7 +179,7 @@ Precision of our model            |  Recall of our model
 
 _Choices :_ 
 - For our model and the human-made annotations : frames that have been classified as belonging to multiple classes (amongst **KCHI**, **CHI**, **MAL**, **FEM**) are taken into account in all their respective classes.
-- **OVL** of LENA mapped to SIL.
+- **OVL** of LENA mapped to **SIL**.
 - **ELE** considered "as is" for LENA and gold labels.
 - **UNK**, for unknown, correspond to frames that have been classified as belonging only to the **SPEECH** class (and not one of the voice type) by our model.
 
