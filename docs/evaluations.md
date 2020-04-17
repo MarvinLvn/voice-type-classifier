@@ -98,11 +98,12 @@ In which case a model would have to predict multiple classes at the same time, t
 For knowing what are LENA performances on this class, you can refer to [[1]](https://www.researchgate.net/publication/334855802_A_thorough_evaluation_of_the_Language_Environment_Analysis_LENATM_system).
 One choice could be to completely discard this class as our model doesn't predict electronical noises.
 Or, and since our held-out set has been annotated for this class, we coud have a look at the distribution of predictions
-for electronical noises to answer the following question : are electronical noises classified as speech ?
+for electronical noises to answer to get to know if electronical noises are classified as speech by our model.
 
 In ***Tab 3.*** and ***Tab 4.***, we chose the optimal mapping for LENA. 
 We also decided to keep human-made labels untouched. That means that we do not consider any **OVL** class, but overlapping moments are considered in the evaluation.
 If a given frame has been annotated as belonging to both **KCHI** and **FEM**, the model is also gonna be expected to return these 2 classes.
+In other words, all the classes are evaluated separately as binary classification problems : KCHI vs non-KCHI, KCHI including key-child vocalizations overlapping with anything else.
 We are aware that this choice potentially advantages our model over LENA. 
 But we think that by doing so, we penalize LENA's design that is less informative than our model in case of overlapping speech.
 However, in all fairness, we explore alternative choices in the section showing the confusion matrices. 
@@ -144,59 +145,52 @@ There are multiple ways to draw confusion matrices looking at either the SPEECH 
 
 #### Speech / Non Speech
 
-As LENA does not return a SPEECH class, we aggregated the voice types [KCHI, OCH, MAL, FEM] into one single SPEECH class.
-
 _Choices :_ 
 - **SPEECH** built from the union of [**KCHI**, **OCH**, **MAL**, **FEM**] for both LENA and gold labels
+- **SPEECH** considered "as is" for our model
 
 Precision of LENA            |  Recall of LENA
 :-------------------------:|:-------------------------:
 ![](figures/confusion_matrices/lena/speech_vs_sil_precision_lena.png) | ![](figures/confusion_matrices/lena/speech_vs_sil_recall_lena.png)
 
-#### Voice types with OVL class
-
-_Choices :_ 
-- **OVL** built from the intersection of [**KCHI**, **OCH**, **MAL**, **FEM**] for gold labels.
-- **OVL** considered "as is" for LENA labels.
-- **ELE** considered "as is" for LENA and gold labels.
-
-Precision of LENA            |  Recall of LENA
-:-------------------------:|:-------------------------:
-![](figures/confusion_matrices/lena/full_precision_lena.png) | ![](figures/confusion_matrices/lena/full_recall_lena.png)
-
-#### Voice types without OVL class
-
-_Choices :_ 
-- **OVL** class discarded for LENA (mapped to SIL).
-- **ELE** class discarded for LENA and gold (mapped to SIL).
-- Frames belonging to multiple classes according to the human annotators count for all the classes they've been classified as
- (if a frame has been annotated as belonging to both **KCHI** and **FEM**, this frame counts as 1 success and 1 failure, 2 successes, or 2 failures depending on the model's prediction).
-
-Precision of LENA            |  Recall of LENA
-:-------------------------:|:-------------------------:
-![](figures/confusion_matrices/lena/full_no_ovl_precision_lena.png) | ![](figures/confusion_matrices/lena/full_no_ovl_recall_lena.png)
-
-### Confusion matrices for our model
-
-#### Speech / Non Speech
-
-_Choices :_ 
-- **SPEECH** built from the union of [**KCHI**, **OCH**, **MAL**, **FEM**] for gold labels
-- **SPEECH** considered "as is" for our model
-
- Precision of our model            |  Recall of our model
+Precision of our model            |  Recall of our model
 :-------------------------:|:-------------------------:
 ![](figures/confusion_matrices/model/speech_vs_sil_precision_model.png) | ![](figures/confusion_matrices/model/speech_vs_sil_recall_model.png)
 
-### Voice types with UNK class
+#### Voice types with OVL class
 
-_Choices :_
-- **KCHI**, **OCH**, **MAL**, **FEM** considered "as is" for our model and the human reference
+_Choices :_ 
+- **OVL** built from the intersection of [**KCHI**, **OCH**, **MAL**, **FEM**] for gold labels and our model.
+- **OVL** considered "as is" for LENA labels.
+- **ELE** considered "as is" for LENA and gold labels.
+- **UNK**, for unknown, correspond to frames that have been classified as belonging only to the **SPEECH** class (and not one of the voice type) by our model.
+ 
+
+Precision of LENA            |  Recall of LENA
+:-------------------------:|:-------------------------:
+![](figures/confusion_matrices/lena/ovl_ele_precision_lena.png) | ![](figures/confusion_matrices/lena/ovl_ele_recall_lena.png) 
+
+Precision of our model            |  Recall of our model
+:-------------------------:|:-------------------------:
+![](figures/confusion_matrices/model/ovl_ele_precision_model.png) | ![](figures/confusion_matrices/model/ovl_ele_recall_model.png) 
+
+
+#### Voice types spreading overlapping frames to their respective classes
+
+_Choices :_ 
+- For our model and the human-made annotations : frames that have been classified as belonging to multiple classes (amongst **KCHI**, **CHI**, **MAL**, **FEM**) are taken into account in all their respective classes.
+- **OVL** of LENA mapped to SIL.
+- **ELE** considered "as is" for LENA and gold labels.
 - **UNK**, for unknown, correspond to frames that have been classified as belonging only to the **SPEECH** class (and not one of the voice type) by our model.
 
- Precision of our model            |  Recall of our model
+Precision of LENA            |  Recall of LENA
 :-------------------------:|:-------------------------:
-![](figures/confusion_matrices/model/half_full_precision_model.png) | ![](figures/confusion_matrices/model/half_full_recall_model.png)
+![](figures/confusion_matrices/lena/spreadingovl_ele_precision_lena.png) | ![](figures/confusion_matrices/lena/spreadingovl_ele_recall_lena.png) 
+
+Precision of our model            |  Recall of our model
+:-------------------------:|:-------------------------:
+![](figures/confusion_matrices/model/spreadingovl_ele_precision_model.png) | ![](figures/confusion_matrices/model/spreadingovl_ele_recall_model.png) 
+
 
 ### Voice types depending on whether they're accompanied of the SPEECH class or not
 
