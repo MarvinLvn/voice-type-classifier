@@ -134,7 +134,7 @@ However, in all fairness, we explore alternative choices in the section showing 
 
 
 
-## Confusion matrices
+## Confusion
 
 To better understand which kind of errors, our model and LENA's model are doing, we can have a look
 at the confusion matrices.
@@ -174,6 +174,17 @@ Precision of our model            |  Recall of our model
 :-------------------------:|:-------------------------:
 ![](figures/confusion_matrices/model/ovl_ele_precision_model.png) | ![](figures/confusion_matrices/model/ovl_ele_recall_model.png) 
 
+Observations:
+
+By making the choices listed above, we're loosing the information of which type of voices are overlapping when OVL is activated.
+
+- Our model is not useful for predicting *OVL* (as it has not been trained to do so).
+- LENA has a tendency to predict quite often **OVL** (high recall, low precision)
+- Our model is better than LENA, in terms of average between precision and recall, for **KCHI**, **MAL** & **FEM**. 
+Meaning that, our model is better than LENA for these 3 classes, both in overlapping situations and non-overlapping situations.
+- We are a bit weaker than LENA for predicting **OCH** when loosing moments where the latter is overlapping with another class. 
+Meaning that, in the standard set-up, our model is better than LENA on the **OCH** class based on its capacity to predict this class in overlapping situations.
+
 
 #### Voice types spreading overlapping frames to their respective classes
 
@@ -191,8 +202,17 @@ Precision of our model            |  Recall of our model
 :-------------------------:|:-------------------------:
 ![](figures/confusion_matrices/model/spreadingovl_ele_precision_model.png) | ![](figures/confusion_matrices/model/spreadingovl_ele_recall_model.png) 
 
+Observations :
+
+By making the choices listed above, we penalize LENA's design that does not specify which type of classes are overlapping when **OVL** is activated.
+
+- Our model is significantly better than LENA's one in terms of average between precision and recall
+- LENA's model has a lower recall for all of the classes (except **OCH**), leading LENA's predictions to wrongly classify speech activity moments as **SIL** (containing also the **OVL** class in this case !)
+
 
 ### Voice types depending on whether they're accompanied of the SPEECH class or not
+
+Concerning the predictions of our model, and to better understand its behaviour, we can have a look at frames that have been classified as belonging to one of the voice type, depending on whether or not the **SPEECH** class is also activated.
 
 _Choices :_
 - **KCHI_nsp** classes correspond to frames that have been classified as belonging to **KCHI** but not belonging to **SPEECH** (same for the other classes).
@@ -206,6 +226,13 @@ Precision of our model|
  Recall of our model|
  :-------------------------:|
 ![](figures/confusion_matrices/model/full_recall_model.png) |
+
+
+Observation :
+
+- Relatively high confusion between **KCHI** and **OCH**
+- 67% of frames classified as electronical noises by the human are classified as **SIL** by our model
+- In most cases, when one of the voice type is activated, **SPEECH** is also activated.
 
 ### References
 
