@@ -134,16 +134,14 @@ However, in all fairness, we explore alternative choices in the section showing 
 
 
 
-## Confusion
+## Confusion matrices
 
 To better understand which kind of errors, our model and LENA's model are doing, we can have a look
 at the confusion matrices.
 
-### Confusion matrices for LENA
-
 There are multiple ways to draw confusion matrices looking at either the **SPEECH** vs **NON-SPEECH** frames, or looking at the confusion matrix showing the voice types.
 
-#### Speech / Non Speech
+### Speech / Non Speech
 
 _Choices :_ 
 - **SPEECH** built from the union of [**KCHI**, **OCH**, **MAL**, **FEM**] for both LENA and gold labels
@@ -157,7 +155,7 @@ Precision of our model            |  Recall of our model
 :-------------------------:|:-------------------------:
 ![](figures/confusion_matrices/model/speech_vs_sil_precision_model.png) | ![](figures/confusion_matrices/model/speech_vs_sil_recall_model.png)
 
-#### Voice types with OVL class
+### Voice types with OVL class
 
 _Choices :_ 
 - **OVL** built from the intersection of [**KCHI**, **OCH**, **MAL**, **FEM**] for gold labels and our model.
@@ -186,7 +184,7 @@ Meaning that, our model is better than LENA for these 3 classes, both in overlap
 Meaning that, in the standard set-up, our model is better than LENA on the **OCH** class based on its capacity to predict this class in overlapping situations.
 
 
-#### Voice types spreading overlapping frames to their respective classes
+### Voice types spreading overlapping frames to their respective classes
 
 _Choices :_ 
 - For our model and the human-made annotations : frames that have been classified as belonging to multiple classes (amongst **KCHI**, **CHI**, **MAL**, **FEM**) are taken into account in all their respective classes.
