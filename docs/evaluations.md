@@ -71,7 +71,7 @@ For illustrative purposes, here's the precision/recall (computed on the developm
 
 ## Performances on the held-out set 
 
-We compute the performances on the held-out set, that means a set that has never been seen during the training (neither by our model nor by LENA's one).
+We compute the performances on the held-out set, a set that has never been seen during the training (neither by our model nor by LENA's one).
 
 Here, we'd like to compare 2 models that have a slightly different design. The main differences between the LENA model and ours are :
 1) Our model returns a **SPEECH** class whereas LENA does not.
@@ -81,11 +81,11 @@ Here, we'd like to compare 2 models that have a slightly different design. The m
 Comparing these 2 approaches requires us to make some choices : 
 
 1) The LENA original model returns the following classes : **CHF**,**CHN**,**CXN**,**CXF**,**FAN**,**FAN**,**MAN**,**MAF**,etc.
-The **N** stands for "near" whereas the **F** stands for "far". We need to map this set of input labels in a new set
+The **N** stands for "near" whereas the **F** stands for "far". We need to map this set of input labels to a new set
 containing only the labels **KCHI**, **CHI**, **MAL**, **FEM**, and **SPEECH**. That way we can compare the predictions made by the model
 with the human-made annotations.
 A choice could be to map **CHF**, and **CHN** to **KCHI**, or we could map **CHN** to **KCHI** and **CHF** to **SIL** for instance.
-Here, we chose the mapping that leads to best performances for LENA. That consists of keeping only the **N** classes, and mapping the **F** classes to **SIL**.
+Here, we chose the mapping that leads to the best performances for LENA. That consists of keeping only the **N** classes, and mapping the **F** classes to **SIL**.
 
 2) What to do with the **OVL** class ? 
 This class is not explicitly present in our set of human-annotated labels. 
@@ -98,7 +98,7 @@ In which case a model would have to predict multiple classes at the same time, t
 For knowing what are LENA performances on this class, you can refer to [[1]](https://www.researchgate.net/publication/334855802_A_thorough_evaluation_of_the_Language_Environment_Analysis_LENATM_system).
 One choice could be to completely discard this class as our model doesn't predict electronical noises.
 Or, and since our held-out set has been annotated for this class, we coud have a look at the distribution of predictions
-for electronical noises to answer to get to know if electronical noises are classified as speech by our model.
+for electronical noises to get to know if electronical noises are classified as speech by our model.
 
 In ***Tab 3.*** and ***Tab 4.***, we chose the optimal mapping for LENA. 
 We also decided to keep human-made labels untouched. That means that we do not consider any **OVL** class, but overlapping moments are considered in the evaluation.
@@ -155,6 +155,9 @@ Precision of our model            |  Recall of our model
 :-------------------------:|:-------------------------:
 ![](figures/confusion_matrices/model/speech_vs_sil_precision_model.png) | ![](figures/confusion_matrices/model/speech_vs_sil_recall_model.png)
 
+_Observation :_
+- Our model is significantly better than LENA to predict speech activity moments.
+
 ### Voice types with OVL class
 
 _Choices :_ 
@@ -172,14 +175,14 @@ Precision of our model            |  Recall of our model
 :-------------------------:|:-------------------------:
 ![](figures/confusion_matrices/model/ovl_ele_precision_model.png) | ![](figures/confusion_matrices/model/ovl_ele_recall_model.png) 
 
-Observations:
+_Observations :_
 
 By making the choices listed above, we're loosing the information of which type of voices are overlapping when OVL is activated.
 
 - Our model is not useful for predicting *OVL* (as it has not been trained to do so).
 - LENA has a tendency to predict quite often **OVL** (high recall, low precision)
 - Our model is better than LENA, in terms of average between precision and recall, for **KCHI**, **MAL** & **FEM**. 
-Meaning that, our model is better than LENA for these 3 classes, both in overlapping situations and non-overlapping situations.
+Meaning that our model is better than LENA for these 3 classes in non-overlapping situations.
 - We are a bit weaker than LENA for predicting **OCH** when loosing moments where the latter is overlapping with another class. 
 Meaning that, in the standard set-up, our model is better than LENA on the **OCH** class based on its capacity to predict this class in overlapping situations.
 
