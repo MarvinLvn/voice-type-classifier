@@ -68,7 +68,15 @@ For illustrative purposes, here's the precision/recall (computed on the developm
 
 ![](figures/precall.png)
 
+This graph shows precision/recall curves while varying the threshold associated to each class. 
+The *AVE.* curves show the average performances of the model across classes.
+For a given class, a low treshold will lead to accept (activate the class of interest) frequently : low precision & high recall.
+Whereas a high treshold will lead the model to be selective, activating the class of interest only when the associated score is high : high precision & low recall.
 
+For instance, a treshold of 0.4 on the **FEM** class leads to 85% precision and 82% recall on this class.
+What we observe on the **OCH** class is that high tresholds (> 0.7) lead the model to accept a lot of unrelevant examples : that's why we obtain a low precision/low recall behaviour on the bottom left of the graph. 
+
+ 
 
 ## Performances on the held-out set 
 

@@ -43,13 +43,13 @@ conda activate pyannote_Marvin                # Activate the shared conda enviro
 Then you can run the model on CPU by typing :
 
 ```bash
-sbatch --mem=64G --time=20:00:00 --cpus-per-task=4 --ntasks=4 -o vtc_namibia_log.txt apply.sh /path/to/my/namibia_recordings --batch=64 --device=cpu
+sbatch --mem=64G --time=20:00:00 --cpus-per-task=4 --ntasks=4 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --batch=64 --device=cpu
 ```
 
 Or on GPU by typing :
 
 ```bash
-sbatch --mem=64G --time=20:00:00 --partition=gpu --ntasks 1 -o vtc_namibia_log.txt apply.sh /path/to/my/namibia_recordings --batch=64 --device=gpu
+sbatch --mem=64G --time=20:00:00 --partition=gpu --ntasks 1 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --batch=64 --device=gpu
 ```
 
 You can notice in these 2 calls to `sbatch`, that the arguments straight after `sbatch` are slurm parameters asking for specific computational resources.
