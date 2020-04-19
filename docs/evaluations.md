@@ -30,24 +30,24 @@ The AVE. row shows average performances across classes.
 
 | Class | Precision | Recall | Fscore |
 | -----:|:-----:|:-----:|:-----:|
-| KCHI | 0.82 | 0.80 | 80.65 |
-| CHI | 0.22 | 0.50 | 30.63 |
-| FEM | 0.84 | 0.84 | 84.21 |
-| MAL | 0.43 | 0.44 | 43.73 |
-| SPEECH | 0.89 | 0.91 | 90.33 |
-| AVE | 0.71 | 0.69 | 65.91 | 
+| KCHI | 81.75 | 79.58 | 80.65 |
+| CHI | 22.15 | 49.67 | 30.63 |
+| FEM | 84.14 | 84.27 | 84.21 |
+| MAL | 43.38 | 44.08 | 43.73 |
+| SPEECH | 89.36 | 91.32 | 90.33 |
+| AVE | 64.16 | 69.79 | 65.91 | 
 
 ***Tab 1. Performances of our model on the development set.***
 
 
 | Class | Precision | Recall | Fscore |
 | -----:|:-----:|:-----:|:-----:|
-| KCHI | 0.82 | 0.73 | 77.37 | 
-| CHI | 0.19 | 0.40 | 25.65 | 
-| FEM | 0.78 | 0.87 | 82.40 | 
-| MAL | 0.38 | 0.48 | 42.25 | 
-| SPEECH | 0.86 | 0.92 | 88.45 |
-| AVE |0.60 | 0.68 | 63.22 |
+| KCHI | 81.69 | 73.48 | 77.37 | 
+| CHI | 18.78 | 40.45 | 25.65 | 
+| FEM | 77.94 | 87.40 | 82.40 | 
+| MAL | 37.82 | 47.86 | 42.25 | 
+| SPEECH | 85.51 | 91.59 | 88.45 |
+| AVE | 60.35 | 68.15 | 63.22 |
 
 ***Tab 2. Performances of our model on the test set.***
 
@@ -120,12 +120,12 @@ However, in all fairness, we explore alternative choices in the section showing 
 
 | Class | Precision | Recall | Fscore |
 | -----:|:-----:|:-----:|:-----:|
-| KCHI | 0.62 | 0.77 | 68.78 |
-| CHI |0.47 | 0.26 | 33.24 |
-| FEM | 0.70 | 0.58 | 63.48 |
-| MAL | 0.40 | 0.47 | 42.91 |
-| SPEECH | 0.77 | 0.80 | 78.43 |
-| AVE |0.59 | 0.57 | 57.37 |
+| KCHI | 62.37 | 76.67 | 68.78 |
+| CHI | 46.77 | 25.78 | 33.24 |
+| FEM | 70.30 | 57.87 | 63.48 |
+| MAL | 39.52 | 46.92 | 42.91 |
+| SPEECH | 77.03 | 79.89 | 78.43 |
+| AVE | 59.20 | 57.42 | 57.37 |
 
 ***Tab 3. Performances of our model on the held-out set.***
 
