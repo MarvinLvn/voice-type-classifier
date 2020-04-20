@@ -15,6 +15,7 @@ $ git checkout voice_type_classifier
 $ conda create --name pyannote python==3.7
 $ conda activate pyannote # or source activate pyannote, depending on your config
 $ pip install .
+$ pip install torch
 ```
 
 Once everything has been installed, you can apply the model by following [these instructions](../docs/applying.md).

@@ -37,19 +37,19 @@ Each time you'll want to apply the model, you'll have to follow these steps :
 
 ```bash
 cd /scratch2/<USERNAME>/voice_type_classifier # Move the voice_type_classifier folder
-conda activate pyannote_Marvin                # Activate the shared conda environment kindly created by Julien Karadayi
+conda activate pyannote_vtc                   # Activate the shared conda environment kindly created by Julien Karadayi
 ```
 
 Then you can run the model on CPU by typing :
 
 ```bash
-sbatch --mem=64G --time=20:00:00 --cpus-per-task=4 --ntasks=4 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --batch=64 --device=cpu
+sbatch --mem=64G --time=20:00:00 --cpus-per-task=8 --ntasks=1 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=cpu
 ```
 
 Or on GPU by typing :
 
 ```bash
-sbatch --mem=64G --time=20:00:00 --partition=gpu --ntasks 1 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --batch=64 --device=gpu
+sbatch --partition=gpu2 --gres=gpu:1 --mem=30G --time=20:00:00 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=gpu
 ```
 
 You can notice in these 2 calls to `sbatch`, that the arguments straight after `sbatch` are slurm parameters asking for specific computational resources.
