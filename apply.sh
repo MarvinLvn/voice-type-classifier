@@ -14,7 +14,8 @@ else
     THISDIR="$( cd "$( dirname "$0" )" && pwd )"
 fi
 
-if [[ -n $CUDA_VISIBLE_DEVICES ]]; then
+hn=$(hostname)
+if [[ $hn == "puck4.cluster" ]]; then
     CUDA_VISIBLE_DEVICES=1
 fi;
 
