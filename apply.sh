@@ -14,6 +14,10 @@ else
     THISDIR="$( cd "$( dirname "$0" )" && pwd )"
 fi
 
+if [[ -n $CUDA_VISIBLE_DEVICES ]]; then
+    CUDA_VISIBLE_DEVICES=1
+fi;
+
 
 # Check sox has been installed
 sox_installed=$(sox --version)
