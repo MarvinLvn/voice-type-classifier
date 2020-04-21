@@ -57,6 +57,8 @@ Whereas, the arguments straight after `apply.sh` are arguments of the bash scrip
 
 The `-o` parameter of `sbatch` consists of telling to slurm where to store the output of the run. This will create a file called `vtc_namibia_log.txt` showing you what your call to `apply.sh` is producing.
 
+Any problems ? You can try to have a look at the tips & tricks section [(at the very end of this doc !)](#tips-and-tricks)
+
 # How to check that my job is running ? 
 
 ## Check my job has started running
@@ -130,7 +132,7 @@ If you want to cancel all the jobs associated to your user account, you can type
 scancel -u <USERNAME>
 ```
 
-# Tips & Tricks
+# Tips and Tricks
 
 ### What if my job is pending for a whole day ?
 
