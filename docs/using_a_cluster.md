@@ -49,7 +49,7 @@ sbatch --mem=64G --time=20:00:00 --cpus-per-task=8 --ntasks=1 -o vtc_namibia_log
 Or on GPU by typing :
 
 ```bash
-sbatch --partition=gpu2 --gres=gpu:1 --mem=30G --time=20:00:00 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=gpu
+sbatch --partition=gpu2 --gres=gpu:1 --mem=30G --time=02:00:00 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=gpu
 ```
 
 You can notice in these 2 calls to `sbatch`, that the arguments straight after `sbatch` are slurm parameters asking for specific computational resources.
