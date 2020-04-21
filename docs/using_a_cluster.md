@@ -130,8 +130,39 @@ If you want to cancel all the jobs associated to your user account, you can type
 scancel -u <USERNAME>
 ```
 
+# Tips & Tricks
 
-# FAQ
+### What if my job is pending for a whole day ?
+
+If your job is pending for too long, you can reduce the time of your job :
+
+For CPU :
+```bash
+sbatch --mem=64G --time=20:00:00 --cpus-per-task=8 --ntasks=1 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=cpu
+```
+
+For GPU:
+```bash
+sbatch --partition=gpu2 --gres=gpu:1 --mem=30G --time=02:00:00 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=gpu --batch=8
+```
+
+Short jobs wait much less in the queue !
+
+### What if I get a memory error ?
+
+If you get a memory error on oberon, one thing you can do is to reduce the size of the batch (there's a tradeoff between quantity of memory needed and runtime) ! 
+
+For CPU :
+```bash
+sbatch --mem=64G --time=20:00:00 --cpus-per-task=8 --ntasks=1 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=cpu
+```
+
+For GPU:
+```bash
+sbatch --partition=gpu2 --gres=gpu:1 --mem=30G --time=02:00:00 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=gpu --batch=8
+```
+
+You can try with `--batch=16` or `--batch=64` if you want to use a bigger batch size (the default size is set to 32). 
 
 ### What if my audio files are in a complicated folder structure, each recording being at a different depth ?
 
