@@ -140,14 +140,15 @@ If your job is pending for too long, you can reduce the time of your job :
 
 For CPU :
 ```bash
-sbatch --mem=64G --time=20:00:00 --cpus-per-task=8 --ntasks=1 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=cpu
+sbatch --mem=64G --time=02:00:00 --cpus-per-task=8 --ntasks=1 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=cpu
 ```
 
 For GPU:
 ```bash
-sbatch --partition=gpu2 --gres=gpu:1 --mem=30G --time=02:00:00 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=gpu --batch=8
+sbatch --partition=gpu2 --gres=gpu:1 --mem=30G --time=00:40:00 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=gpu
 ```
 
+The format is ``--time=hh:mm:ss``. Therefore `--time=20:00:00` means you want to submit a job for 20h while `--time=00:40:00` means you want to submit a job for 40mn.
 Short jobs wait much less in the queue !
 
 ### What if I get a memory error ?
@@ -156,7 +157,7 @@ If you get a memory error on oberon, one thing you can do is to reduce the size 
 
 For CPU :
 ```bash
-sbatch --mem=64G --time=20:00:00 --cpus-per-task=8 --ntasks=1 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=cpu
+sbatch --mem=64G --time=20:00:00 --cpus-per-task=8 --ntasks=1 -o vtc_namibia_log.txt ./apply.sh /path/to/my/namibia_recordings --device=cpu --batch=8
 ```
 
 For GPU:
