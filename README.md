@@ -20,6 +20,13 @@ The code mainly relies on pyannote-audio [2], an awesome python toolkit for buil
 3) [Evaluation](./docs/evaluations.md)
 4) [Going further](./docs/going_further.md)
 
+### Awesome tools using our voice type classifier
+
+***ALICE***, an Automatic Linguistic Unit Count Estimator, allowing you to count the number of words, syllables and phonemes in adult speakers' utterances : 
+
+- [Paper link](https://psyarxiv.com/p95dz/)
+- [Git repo](https://github.com/orasanen/ALICE)
+
 ### References
 [1] An open-source voice type classifier for child-centered daylong recordings *-under review-* 
 
@@ -34,7 +41,7 @@ primaryClass={eess.AS}
 }
 ```
 
-[2] pyannote.audio: neural building blocks for speaker diarization *-reviewed-* 
+[2] pyannote.audio: neural building blocks for speaker diarization
 
 ```text
 @inproceedings{Bredin2020,
@@ -59,10 +66,3 @@ primaryClass={eess.AS}
     primaryClass={eess.AS}
 }
 ```
-
-### Awesome tools using our voice type classifier
-
-***ALICE***, an Automatic Linguistic Unit Count Estimator, allowing you to count the number of words, syllables and phonemes in adult speakers' utterances : 
-
-- [Paper link](https://psyarxiv.com/p95dz/)
-- [Git repo](https://github.com/orasanen/ALICE)
