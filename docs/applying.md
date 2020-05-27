@@ -1,16 +1,25 @@
-# Applying
+# Things to check before applying
 
-First, let's activate the conda environment 
+Make sure your recordings are under the **.wav** format and have been sampled at **16 kHz**, to do so you can use :
+
+```bash
+soxi /path/to/my_recording.wav
+```
+
+You also need to make sure that you've activated the conda environment you created : 
 
 ```bash
 conda activate pyannote # or source activate pyannote, depending on your config
 ```
 
+Last but not least, make sure that you are in the ***voice_type_classifier*** repository.
+
+# Applying
+
 The code consists mainly of a wrapper of pyannote-audio's code responsible for applying a model.
 If you want to go further by retraining the model, you should go around [here](https://github.com/MarvinLvn/pyannote-audio/tree/voice_type_classifier).
 
-First, make sure that you are in the ***voice_type_classifier*** repository.
-That being said, you can apply our pre-trained model by typing :
+You can apply our pre-trained model by typing :
 
 ```bash
 ./apply.sh /path/to/my_recordings/ --device=gpu
