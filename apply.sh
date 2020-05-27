@@ -23,15 +23,17 @@ fi;
 # Check sox has been installed
 sox_installed=$(sox --version)
 sox_installed=${sox_installed:0:3}
-if [ $sox_installed != "sox" ]; then
+if [[ "${sox_installed}" != "sox" ]]; then
     echo "Sox can't be found. Please intall sox before running this script"
     exit
 fi;
 
 # Check pyannote-audio has been installed
 pyannote_installed=$(pyannote-audio --version)
+
 pyannote_installed=${pyannote_installed:0:14}
-if [ $pyannote_installed != "pyannote-audio" ]; then
+
+if [[ "${pyannote_installed}" != "pyannote-audio" ]]; then
     echo "pyannote-audio can't be found."
     echo "Check that you activated your conda environment and than you installed pyannote-audio."
     exit
