@@ -1,4 +1,4 @@
-# SincNet and LSTM based Voice Type Classifier
+# A Voice Type Classifier For Child-Centered Daylong Recordings
 
 ![Architecture of our model](docs/figures/archi_sincnet.png)
 
@@ -9,8 +9,9 @@ In this repository, you'll find all the necessary code for applying a pre-traine
 - CHI stands for other child speech
 - SPEECH stands for speech :)
 
-Our model's architecture is based on SincNet [3].
-The code mainly relies on pyannote-audio [2], an awesome python toolkit for building neural building blocks that can be combined to solve the speaker diarization task.
+Our model's architecture is based on SincNet [[3]](https://github.com/mravanelli/SincNet/) and LSTM layers.
+Details can be found in our paper [[1]](https://arxiv.org/abs/2005.12656).
+The code mainly relies on pyannote-audio [[2]](https://github.com/pyannote/pyannote-audio), an awesome python toolkit for building neural building blocks that can be combined to solve the speaker diarization task.
 
 ### How to use ?
 
