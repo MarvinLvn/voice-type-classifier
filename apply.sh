@@ -87,10 +87,10 @@ if [[ "$(ls -A ${TARGET_PATH}$EXT)" ]]; then
 
     # Create database.yml
     echo "Databases:
-    $bn: ${DB_PATH}
+    ${bn}_protocol: ${DB_PATH}
 
 Protocols:
-  $bn:
+  ${bn}_protocol:
     SpeakerDiarization:
       All:
         test:
@@ -117,7 +117,7 @@ Protocols:
     VAL_DIR=$THISDIR/model/train/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.train/validate_average_detection_fscore/X.SpeakerDiarization.BBT2_LeaveOneDomainOut_paido.development
 
     # Check current class is in classes (provided by the user or by default the KCHI CHI MAL FEM SPEECH)
-    pyannote-audio mlt apply --$DEVICE --batch=$BATCH --subset=test --parallel=8 $VAL_DIR $bn.SpeakerDiarization.All
+    pyannote-audio mlt apply --$DEVICE --batch=$BATCH --subset=test --parallel=8 $VAL_DIR ${bn}_protocol.SpeakerDiarization.All
 
     if [ $? -ne 0 ]; then
         echo "Something went wrong when applying the model"
@@ -127,7 +127,7 @@ Protocols:
 
     classes=(KCHI CHI MAL FEM SPEECH)
     for class in ${classes[*]}; do
-        mv ${VAL_DIR}/apply/${BEST_EPOCH}/$bn.SpeakerDiarization.All.test.$class.rttm $OUTPUT/$class.rttm
+        mv ${VAL_DIR}/apply/${BEST_EPOCH}/${bn}_protocol.SpeakerDiarization.All.test.$class.rttm $OUTPUT/$class.rttm
     done
 
     # Clean up
