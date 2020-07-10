@@ -1,23 +1,13 @@
 task:
   params:
-    alpha: 0
     duration: 2.0
-    domain: domain
     batch_size: 64
-    attachment: 0
     per_epoch: 1
-    domain_loss: MSELoss
-    rnn:
-      unit: LSTM
-      hidden_size: 128
-      num_layers: 1
-      bidirectional: False
-      pool: max
     labels_spec:
       regular: ['KCHI', 'CHI', 'MAL', 'FEM']
       union:
         SPEECH: ['KCHI', 'CHI', 'FEM', 'MAL', 'SPEECH']
-  name: DomainAdversarialMultilabelDetection
+  name: MultilabelDetection
 architecture:
   params:
     sincnet:
