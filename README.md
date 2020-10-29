@@ -29,16 +29,14 @@ The code mainly relies on pyannote-audio [[2]](https://github.com/pyannote/pyann
 - [Git repo](https://github.com/orasanen/ALICE)
 
 ### References
-[1] An open-source voice type classifier for child-centered daylong recordings *-under review-* 
+[1] An open-source voice type classifier for child-centered daylong recordings
 
 ```text
-@misc{lavechin2020opensource,
+@inproceedings{lavechin2020opensource,
 title={An open-source voice type classifier for child-centered daylong recordings},
 author={Marvin Lavechin and Ruben Bousbib and Hervé Bredin and Emmanuel Dupoux and Alejandrina Cristia},
 year={2020},
-eprint={2005.12656},
-archivePrefix={arXiv},
-primaryClass={eess.AS}
+booktitle = {Interspeech 2020}
 }
 ```
 
