@@ -12,4 +12,5 @@ $ cd voice_type_classifier
 $ conda env create -f vtc.yml
 ```
 
+Make sure [sox](http://sox.sourceforge.net/) is installed too.
 Once everything has been installed, you can apply the model by following [these instructions](../docs/applying.md).
