@@ -1,5 +1,7 @@
 # A Voice Type Classifier For Child-Centered Daylong Recordings
 
+This is the git repository associated to our Interspeech 2020 publication : [[An open-source voice type classifier for child-centered daylong recordings]](https://arxiv.org/abs/2005.12656)
+
 ![Architecture of our model](docs/figures/archi_sincnet.png)
 
 In this repository, you'll find all the necessary code for applying a pre-trained model that, given an audio recording, classifies each frame into **[SPEECH, KCHI, CHI, MAL, FEM]**.
