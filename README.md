@@ -1,6 +1,6 @@
 # A Voice Type Classifier For Child-Centered Daylong Recordings
 
-This is the git repository associated to our Interspeech 2020 publication : [[An open-source voice type classifier for child-centered daylong recordings]](https://arxiv.org/abs/2005.12656)
+This is the git repository associated to our Interspeech 2020 publication : [*An open-source voice type classifier for child-centered daylong recordings*](https://arxiv.org/abs/2005.12656)
 
 ![Architecture of our model](docs/figures/archi_sincnet.png)
 
