@@ -31,6 +31,9 @@ The code mainly relies on pyannote-audio [[2]](https://github.com/pyannote/pyann
 - [Git repo](https://github.com/orasanen/ALICE)
 
 ### References
+
+The main paper :
+
 [1] An open-source voice type classifier for child-centered daylong recordings
 
 ```text
@@ -41,6 +44,8 @@ year={2020},
 booktitle = {Interspeech 2020}
 }
 ```
+
+We also encourage you to cite this work :
 
 [2] pyannote.audio: neural building blocks for speaker diarization
 
