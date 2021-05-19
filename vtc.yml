@@ -5,10 +5,10 @@ channels:
   - defaults
 dependencies:
   - python=3.8
-  - pip=20.0.2
+  - pip=21.1.1
   - pip:
     - cachetools>=2.0.0
-    - librosa==0.7.2
+    - librosa
     - pandas>=0.18.0
     - pyannote.core==3.7.1
     - pyannote.database==3.0.1
