@@ -89,6 +89,12 @@ Protocols:
     # Create .uem file
     for audio in $(ls -A ${TARGET_PATH}$EXT); do
         duration=$(soxi -D $audio)
+        sr=$(soxi -r $audio)
+        if [[ $sr != 16000 ]]; then
+          >&2 echo "WRONG SAMPLING RATE ENCOUNTERED"
+          >&2 echo "$audio has a sampling rate of $sr. Please convert your audio files to 16kHz before using the vtc."
+          exit
+        fi;
         echo "$(basename ${audio/.wav/}) 1 0.0 $duration"
     done > $THISDIR/pyannote_tmp_config/$bn/$bn.uem
 
