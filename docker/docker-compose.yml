@@ -1,0 +1,130 @@
+version: "3.8"
+services:
+  vtc_source_gpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+      args:
+        source: "True"
+        image: nvidia/cuda:10.1-cudnn7-devel-ubuntu16.04
+        magma_version: 101
+        torch_cuda_arch_string: "3.5 5.2 6.0 6.1 7.0+PTX"
+        python_version: 3.7
+        vtc_version: HEAD
+    runtime : nvidia
+    volumes:
+      - type: bind
+        source: ../../data
+        target: /home/user/data
+    environment:
+      BATCH: "2"
+      DEVICE: gpu
+  vtc_source_cpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+      args:
+        source: "True"
+        image: nvidia/cuda:10.1-cudnn7-devel-ubuntu16.04
+        magma_version: 101
+        torch_cuda_arch_string: "3.5 5.2 6.0 6.1 7.0+PTX"
+        python_version: 3.7
+        vtc_version: HEAD
+    volumes:
+      - type: bind
+        source: ../../data
+        target: /home/user/data
+    environment:
+      BATCH: "32"
+      DEVICE: cpu
+  vtc_ubuntu_cpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+      args:
+        source: "False"
+        image: ubuntu:20.04
+        python_version: 3.7
+        vtc_version: HEAD
+    volumes:
+      - type: bind
+        source: ../../data
+        target: /home/user/data
+    environment:
+      BATCH: "32"
+      DEVICE: cpu
+  vtc_ubuntu_gpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+      args:
+        source: "False"
+        image: ubuntu:20.04
+        python_version: 3.7
+        vtc_version: HEAD
+    runtime : nvidia
+    volumes:
+      - type: bind
+        source: ../../data
+        target: /home/user/data
+    environment:
+      BATCH: "2"
+      DEVICE: gpu
+  vtc_source_cpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+      args:
+        source: "True"
+        image: nvidia/cuda:10.1-cudnn7-devel-ubuntu16.04
+        magma_version: 101
+        torch_cuda_arch_string: "3.5 5.2 6.0 6.1 7.0+PTX"
+        python_version: 3.7
+        vtc_version: HEAD
+    volumes:
+      - type: bind
+        source: ../../data
+        target: /home/user/data
+    environment:
+      BATCH: "32"
+      DEVICE: cpu
+  vtc_cuda_cpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+      args:
+        source: "False"
+        image: nvidia/cuda:11.0-base
+        python_version: 3.7
+        vtc_version: HEAD
+    volumes:
+      - type: bind
+        source: ../../data
+        target: /home/user/data
+    environment:
+      BATCH: "32"
+      DEVICE: cpu
+  vtc_cuda_gpu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+      args:
+        source: "False"
+        image: nvidia/cuda:11.0-base
+        python_version: 3.7
+        vtc_version: HEAD
+    runtime : nvidia
+    volumes:
+      - type: bind
+        source: ../../data
+        target: /home/user/data
+    environment:
+      BATCH: "2"
+      DEVICE: gpu
