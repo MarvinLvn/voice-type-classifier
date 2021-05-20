@@ -3,7 +3,7 @@ services:
   vtc_source_gpu:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
       network: host
       args:
         source: "True"
@@ -23,7 +23,7 @@ services:
   vtc_source_cpu:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
       network: host
       args:
         source: "True"
@@ -42,7 +42,7 @@ services:
   vtc_ubuntu_cpu:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
       network: host
       args:
         source: "False"
@@ -59,7 +59,7 @@ services:
   vtc_ubuntu_gpu:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
       network: host
       args:
         source: "False"
@@ -77,7 +77,7 @@ services:
   vtc_source_cpu:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
       network: host
       args:
         source: "True"
@@ -96,7 +96,7 @@ services:
   vtc_cuda_cpu:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
       network: host
       args:
         source: "False"
@@ -113,7 +113,7 @@ services:
   vtc_cuda_gpu:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
       network: host
       args:
         source: "False"

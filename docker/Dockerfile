@@ -34,8 +34,8 @@ RUN apt-get update -y \
         curl \
         ca-certificates
 
-RUN if [ ${SOURCE} = "True" ]; then DEBIAN_FRONTEND=noninteractive apt-get update -y \
-    && apt-get install --no-install-recommends -y \
+RUN if [ ${SOURCE} = "True" ]; then apt-get update -y \
+    && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
         build-essential \
         cmake \
         libjpeg-dev \
@@ -43,7 +43,7 @@ RUN if [ ${SOURCE} = "True" ]; then DEBIAN_FRONTEND=noninteractive apt-get updat
         ; fi
 
 USER $USER
-
+COPY --chown=$UID:$GID . /home/user/voice_type_classifier/
 ENV CONDA_DIR $HOME/miniconda3
 WORKDIR /home/user/
 RUN curl -o ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
@@ -51,19 +51,16 @@ RUN curl -o ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest
      ~/miniconda.sh -b -p $CONDA_DIR && \
     rm /home/user/miniconda.sh
 RUN $CONDA_DIR/bin/conda install python=${PYTHON_VERSION}
-COPY script_source_pytorch.sh .
-RUN if [ ${SOURCE} = "True" ]; then bash script_source_pytorch.sh 1 ; fi
+RUN if [ ${SOURCE} = "True" ]; then bash voice_type_classifier/docker/script_source_pytorch.sh 1 ; fi
 
 ENV PATH $CONDA_DIR/bin:$PATH
 WORKDIR /home/user/
-RUN if [ ${SOURCE} = "True" ]; then bash script_source_pytorch.sh 2 ;  fi
-RUN git clone --recurse-submodules https://github.com/MarvinLvn/voice_type_classifier.git
+RUN if [ ${SOURCE} = "True" ]; then bash voice_type_classifier/docker/script_source_pytorch.sh 2 ;  fi
 WORKDIR /home/user/voice_type_classifier
 RUN if [ "$VTC_VERSION" != "HEAD" ]; then git checkout  "$VTC_VERSION" ; fi
-RUN cat vtc.yml | grep "    - " | sed 's/    - //g' > vtc-prepared.yml
-RUN pip install -r vtc-prepared.yml
+RUN cat vtc.yml | grep "    - " | sed 's/    - //g' | sed  's+pyannote-audio/+voice_type_classifier/pyannote-audio/+g' > ../vtc-prepared.yml
 WORKDIR /home/user/
-COPY ./script_run_vtc.sh .
-CMD   /bin/bash --login -c "bash script_run_vtc.sh \
+RUN pip install -r vtc-prepared.yml
+CMD   /bin/bash --login -c ". /home/user/miniconda3/etc/profile.d/conda.sh && bash voice_type_classifier/docker/script_run_vtc.sh \
         ${DEVICE} \
         ${BATCH}"
