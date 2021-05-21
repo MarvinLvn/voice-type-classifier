@@ -7,38 +7,28 @@ services:
       network: host
       args:
         source: "True"
-        image: nvidia/cuda:10.1-cudnn7-devel-ubuntu16.04
-        magma_version: 101
-        torch_cuda_arch_string: "3.5 5.2 6.0 6.1 7.0+PTX"
+        # image: nvidia/cuda:10.1-cudnn7-devel-ubuntu16.04
+        image: nvidia/cuda:11.2.1-cudnn8-devel-ubuntu20.04
+        # magma_version: 101
+        magma_version: 102
+        # torch_cuda_arch_string: "3.5 5.2 6.0 6.1 7.0+PTX"
+        torch_cuda_arch_string: "7.5+PTX"
         python_version: 3.7
-        vtc_version: HEAD
-    runtime : nvidia
+    # runtime : nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu]
     volumes:
       - type: bind
         source: ../../data
         target: /home/user/data
     environment:
-      BATCH: "2"
+      BATCH: "16"
       DEVICE: gpu
-  vtc_source_cpu:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-      network: host
-      args:
-        source: "True"
-        image: nvidia/cuda:10.1-cudnn7-devel-ubuntu16.04
-        magma_version: 101
-        torch_cuda_arch_string: "3.5 5.2 6.0 6.1 7.0+PTX"
-        python_version: 3.7
-        vtc_version: HEAD
-    volumes:
-      - type: bind
-        source: ../../data
-        target: /home/user/data
-    environment:
-      BATCH: "32"
-      DEVICE: cpu
   vtc_ubuntu_cpu:
     build:
       context: .
@@ -48,61 +38,6 @@ services:
         source: "False"
         image: ubuntu:20.04
         python_version: 3.7
-        vtc_version: HEAD
-    volumes:
-      - type: bind
-        source: ../../data
-        target: /home/user/data
-    environment:
-      BATCH: "32"
-      DEVICE: cpu
-  vtc_ubuntu_gpu:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-      network: host
-      args:
-        source: "False"
-        image: ubuntu:20.04
-        python_version: 3.7
-        vtc_version: HEAD
-    runtime : nvidia
-    volumes:
-      - type: bind
-        source: ../../data
-        target: /home/user/data
-    environment:
-      BATCH: "2"
-      DEVICE: gpu
-  vtc_source_cpu:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-      network: host
-      args:
-        source: "True"
-        image: nvidia/cuda:10.1-cudnn7-devel-ubuntu16.04
-        magma_version: 101
-        torch_cuda_arch_string: "3.5 5.2 6.0 6.1 7.0+PTX"
-        python_version: 3.7
-        vtc_version: HEAD
-    volumes:
-      - type: bind
-        source: ../../data
-        target: /home/user/data
-    environment:
-      BATCH: "32"
-      DEVICE: cpu
-  vtc_cuda_cpu:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-      network: host
-      args:
-        source: "False"
-        image: nvidia/cuda:11.0-base
-        python_version: 3.7
-        vtc_version: HEAD
     volumes:
       - type: bind
         source: ../../data
@@ -117,14 +52,21 @@ services:
       network: host
       args:
         source: "False"
-        image: nvidia/cuda:11.0-base
+        # image: nvidia/cuda:11.0-base
+        image: nvidia/cuda:11.2.1-base
         python_version: 3.7
-        vtc_version: HEAD
-    runtime : nvidia
+    # runtime : nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu]
     volumes:
       - type: bind
         source: ../../data
         target: /home/user/data
     environment:
-      BATCH: "2"
+      BATCH: "16"
       DEVICE: gpu

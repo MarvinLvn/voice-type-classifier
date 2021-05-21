@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+MJ=${2}
 
 if [ ${1} = "1" ]
 then
@@ -11,9 +11,11 @@ then
 	git clone --recursive https://github.com/pytorch/pytorch
 	cd /home/user/pytorch
 	git submodule sync && git submodule update --init --recursive
+	# sed -i 's/"-j"/"-j8"/g' cmake/External/nccl.cmake
 	TORCH_CUDA_ARCH_LIST=${TORCH_CUDA_ARCH_STRING} \
 		TORCH_NVCC_FLAGS="-Xfatbin -compress-all" \
 		USE_CUDA=1 \
     		CMAKE_PREFIX_PATH="$(dirname $(which conda))/../" \
+			MAX_JOBS=$MJ \
     		pip install -v .
 fi
