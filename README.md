@@ -41,7 +41,7 @@ The main paper :
 title={An open-source voice type classifier for child-centered daylong recordings},
 author={Marvin Lavechin and Ruben Bousbib and Hervé Bredin and Emmanuel Dupoux and Alejandrina Cristia},
 year={2020},
-booktitle = {Interspeech 2020}
+booktitle = {Interspeech}
 }
 ```
 
