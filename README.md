@@ -59,16 +59,3 @@ We also encourage you to cite this work :
   Year = {2020},
 }
 ```
-
-[3] Speaker Recognition from Raw Waveform with SincNet
-
-```text
-@misc{ravanelli2018speaker,
-    title={Speaker Recognition from Raw Waveform with SincNet},
-    author={Mirco Ravanelli and Yoshua Bengio},
-    year={2018},
-    eprint={1808.00158},
-    archivePrefix={arXiv},
-    primaryClass={eess.AS}
-}
-```
