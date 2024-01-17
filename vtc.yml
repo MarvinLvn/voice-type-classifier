@@ -25,5 +25,6 @@ dependencies:
     - pescador>=2.1.0
     - Pillow>=6.2.1
     - torch>=1.4.0
+    - joblib==1.2.0
     - numba
     - pyannote-audio/
