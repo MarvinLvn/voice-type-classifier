@@ -10,7 +10,7 @@ In this repository, you'll find all the necessary code for applying a pre-traine
 - FEM stands for female speech
 - MAL stands for male speech
 - KCHI stands for key-child speech
-- CHI stands for other child speech
+- CHI (or OCH) stands for other child speech
 - SPEECH stands for speech :)
 
 Our model's architecture is based on SincNet [[3]](https://github.com/mravanelli/SincNet/) and LSTM layers.
