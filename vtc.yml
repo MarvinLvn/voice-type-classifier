@@ -9,7 +9,7 @@ dependencies:
   - pip:
     - numpy==1.23.5 
     - cachetools>=2.0.0
-    - librosa
+    - librosa==0.10.0
     - pandas>=0.18.0
     - pyannote.core==3.7.1
     - pyannote.database==3.0.1
