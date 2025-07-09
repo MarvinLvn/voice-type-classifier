@@ -5,11 +5,11 @@ for speaker diarization: speech activity detection, speaker change detection, sp
 
 ```bash
 # Step 1: git clone the voice type classifier repo as well as pyannote-audio dependency
-$ git clone --recurse-submodules https://github.com/MarvinLvn/voice_type_classifier.git
-$ cd voice_type_classifier
+git clone --recurse-submodules https://github.com/MarvinLvn/voice_type_classifier.git
+cd voice_type_classifier
 
 # Step 2 : create conda env called "pyannote", installing all the required dependencies
-$ conda env create -f vtc.yml
+conda env create -f vtc.yml
 ```
 
 Make sure [sox](http://sox.sourceforge.net/) is installed too.
