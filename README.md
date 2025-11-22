@@ -1,6 +1,16 @@
+🎉 📢 🎉  
+
+**A new version (VTC 2.0) is available at [https://github.com/LAAC-LSCP/VTC](https://github.com/LAAC-LSCP/VTC)**
+
+We strongly recommend switching; it should provide better **accuracy** and **faster running time** :)
+
+The code for VTC 1.0 will remain available here for reproducibility.
+
+🎉 📢 🎉
+
 # A Voice Type Classifier For Child-Centered Daylong Recordings
 
-This is the git repository associated to our Interspeech 2020 publication : [*An open-source voice type classifier for child-centered daylong recordings*](https://arxiv.org/abs/2005.12656)
+This is the git repository associated to our Interspeech 2020 publication : [*An open-source voice type classifier for child-centered daylong recordings*](https://arxiv.org/abs/2005.12656); aka VTC 1.0.
 
 <p align="center">
   <img src="docs/figures/vtc_problem.png" alt="Output of the voice type classifier" style="width:75%;">
