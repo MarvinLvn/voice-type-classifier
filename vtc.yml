@@ -26,5 +26,6 @@ dependencies:
     - Pillow>=6.2.1
     - torch>=1.4.0
     - joblib==1.2.0
+    - colorlog==6.10.1
     - numba
     - pyannote-audio/
